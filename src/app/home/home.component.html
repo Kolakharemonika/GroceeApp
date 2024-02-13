@@ -1,0 +1,83 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon size="large" aria-hidden="true" slot="start" name='cart-outline'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ng-container>
+      <ion-label>Delivery Location</ion-label> <br>
+      <ion-label>Bengaluru, India <ion-icon aria-hidden="true" slot="end" name='create-outline'></ion-icon>
+      </ion-label>
+    </ng-container>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar color="light" placeholder="Search for product"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <swiper-container    [loop]="true"    [pagination]="true">
+    <swiper-slide> <img src="assets/images/organic.jpg" alt="organic img"> </swiper-slide>
+    <swiper-slide> <img src="assets/images/organic2.jpg" alt="organic img"> </swiper-slide>
+  </swiper-container>
+
+  <ion-row class="home-offers">
+    <ion-col>
+      <ion-card color="danger">
+        <ion-card-header>
+          <ion-card-title>40% OFF</ion-card-title>
+          <ion-card-title>UP TO $800</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-note>Minimum order $5000</ion-note>
+          <ion-button shape="round" size="small" color="light">GET OFFER</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card color="darkblue">
+        <ion-card-header>
+          <ion-card-title>10% OFF</ion-card-title>
+          <ion-card-title>UP TO $500</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-note>Minimum order $5000</ion-note>
+          <ion-button shape="round" size="small" color="light">GET OFFER</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="essential-section">
+    <ion-row>
+      <ion-col>
+        <ion-text color="white"> <h5> Best of Everyday essentials </h5>
+        </ion-text>
+        <h6>View All</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+            <ion-badge slot="end">22</ion-badge>
+          <!-- <ion-button color="primary" size="small" class="price-off">50% OFF</ion-button> -->
+          <ion-card-header>
+            <img src="../../assets/images/profile.jpg" alt="">
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-subtitle>
+              Surf Excel Matic Top Load Detergent Powder (Carton)
+            </ion-card-subtitle>
+            <ion-label class="product-price">$600.99 <span>$800.99</span></ion-label>
+            <ng-container>
+              2kg
+            </ng-container>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

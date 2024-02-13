@@ -1,0 +1,32 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button size="large"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon size="large" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Single Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <swiper-container  [pagination]="true">
+    <swiper-slide> <img src="assets/images/single_product_1.jpg" alt="single product img"> </swiper-slide>
+    <swiper-slide> <img src="assets/images/single_product_2.jpg" alt="single product img"> </swiper-slide>
+    <swiper-slide> <img src="assets/images/single_product_3.jpg" alt="single product img"> </swiper-slide>
+  </swiper-container>
+  <ion-row class="ion-padding">
+    <ion-card class="ion-padding">
+
+      <h5>Quick Overview</h5>
+      <ion-text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum.
+
+        Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hiMenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum.
+      </ion-text>
+    </ion-card>
+  </ion-row>
+
+</ion-content>

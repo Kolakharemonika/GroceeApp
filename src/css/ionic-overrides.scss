@@ -1,0 +1,26 @@
+
+ .menu-list {
+   ion-item {
+    border-radius: 4px;
+    ion-icon {
+        color: #616e7e;
+      }
+   }
+
+   ion-item.selected {
+    --background: rgba(var(--ion-color-primary-rgb), 0.14);
+    --color: var(--ion-color-primary);
+    ion-icon {
+        color: var(--ion-color-primary);
+    }
+   }
+
+ }
+.input-label-placement-stacked.sc-ion-input-md-h {
+  min-height: 65px !important;
+}
+capacitor-google-map {
+  display: inline-block;
+  width: 275px;
+  height: 400px;
+}
