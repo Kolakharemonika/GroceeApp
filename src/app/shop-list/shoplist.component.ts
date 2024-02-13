@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 
 @Component({
@@ -7,7 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class ShopListComponent {
+  selectedType:any;
+  constructor(private route: ActivatedRoute,) {
+    this.route.queryParams.subscribe(params => {
 
-  constructor() { }
-
+      if (params['type']) {
+        this.selectedType = params['type'];
+      }
+    });
+  }
 }

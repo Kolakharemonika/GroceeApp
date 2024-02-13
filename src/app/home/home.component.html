@@ -19,7 +19,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
-  <swiper-container    [loop]="true"    [pagination]="true">
+  <swiper-container [loop]="true" [pagination]="true">
     <swiper-slide> <img src="assets/images/organic.jpg" alt="organic img"> </swiper-slide>
     <swiper-slide> <img src="assets/images/organic2.jpg" alt="organic img"> </swiper-slide>
   </swiper-container>
@@ -51,33 +51,53 @@
     </ion-col>
   </ion-row>
   <ion-grid class="essential-section">
+    <ion-text color="white">
+      <h5> Best of Everyday essentials </h5>
+    </ion-text>
+    <h6>View All</h6>
     <ion-row>
-      <ion-col>
-        <ion-text color="white"> <h5> Best of Everyday essentials </h5>
-        </ion-text>
-        <h6>View All</h6>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-card>
-            <ion-badge slot="end">22</ion-badge>
-          <!-- <ion-button color="primary" size="small" class="price-off">50% OFF</ion-button> -->
-          <ion-card-header>
-            <img src="../../assets/images/profile.jpg" alt="">
-          </ion-card-header>
-          <ion-card-content>
-            <ion-card-subtitle>
-              Surf Excel Matic Top Load Detergent Powder (Carton)
-            </ion-card-subtitle>
-            <ion-label class="product-price">$600.99 <span>$800.99</span></ion-label>
-            <ng-container>
-              2kg
-            </ng-container>
-          </ion-card-content>
+      <ion-col size="6" *ngFor="let item of itemList">
+        <ion-card style="margin: 0px;">
+          <ion-item lines="none">
+            <ion-badge color="primary" slot="end" *ngIf="item.discount">{{item.discount}}</ion-badge>
+            <img [src]="item.img" alt="">
+          </ion-item>
 
+          <ion-card-content>
+            <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
+            <ion-label class="product-price">{{item.price}}
+              <span class="discount-price">{{item.discountedPrice}}</span></ion-label>
+            <ion-note>
+
+              {{item.quantity}}
+            </ion-note>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
+    <ion-row>
+    </ion-row>
   </ion-grid>
+  <ion-img class="ion-padding" src="assets/images/mango.jpg" alt="mango"></ion-img>
+  <ion-list>
+    <ion-item lines="none">
+      <ion-list-header> Best Selling</ion-list-header>
+      <ion-button color="primary"> VIEW ALL </ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail>
+        <img alt="Silhouette of mountains" src="assets/images/product22.jpg" />
+      </ion-thumbnail>
+      <ion-card-content>
+        <ion-label class="product-price">$449.00
+          <span class="discount-price">$222.78</span></ion-label>
+        <ion-badge color="primary" slot="end">5% OFF</ion-badge>
+        <ion-label>Hygienix Anti-Bacterial Hand Sanitizer (Bottle)</ion-label>
+      </ion-card-content>
+
+    </ion-item>
+
+  </ion-list>
+  <ion-img class="ion-padding" src="assets/images/home4.jpg"></ion-img>
 </ion-content>
