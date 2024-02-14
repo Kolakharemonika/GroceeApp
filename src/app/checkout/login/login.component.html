@@ -1,0 +1,26 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button size="large"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Login </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light" class="ion-padding">
+  <ion-text>We will send an SMS with a confirmation code to this number</ion-text>
+
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input aria-label="Phone Number" type="Phone" placeholder="Enter Phone Number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Use your referral code here</ion-label>
+        <ion-input aria-label="Use your referral code here" type="text" placeholder="Enter Code"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+  <ion-button button="medium" expand="block">NEXT</ion-button>
+
+</ion-content>

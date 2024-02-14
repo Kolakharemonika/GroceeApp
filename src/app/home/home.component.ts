@@ -10,8 +10,8 @@ export class HomeComponent {
     discount: '50% OFF',
     img: 'assets/images/product1.jpg',
     title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-    price: '$600.99',
-    discountedPrice: '$800.99',
+    price: '$800.99',
+    discountedPrice: '$600.99',
     quantity:'2kg'
   },
    {

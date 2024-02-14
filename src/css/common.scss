@@ -8,7 +8,7 @@ body {
   --color: #fff;
 }
 
-ion-list-header {
+ion-list-header:not(.mk) {
   font-size: 22px;
   font-weight: 600;
   min-height: 38px;
@@ -89,4 +89,10 @@ overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+}
+
+.space-between {
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

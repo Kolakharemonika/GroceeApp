@@ -6,6 +6,7 @@
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon size="large" aria-hidden="true" slot="start" name='cart-outline'></ion-icon>
+        <ion-badge>10</ion-badge>
       </ion-button>
     </ion-buttons>
     <ng-container>
@@ -65,12 +66,16 @@
 
           <ion-card-content>
             <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
-            <ion-label class="product-price">{{item.price}}
-              <span class="discount-price">{{item.discountedPrice}}</span></ion-label>
-            <ion-note>
-
-              {{item.quantity}}
-            </ion-note>
+            <ion-label class="product-price">{{item.discountedPrice}}
+              <span class="discount-price">{{item.price}}</span></ion-label>
+            <div class="space-between">
+              <ion-note> {{item.quantity}} </ion-note>
+              <div class="space-between">
+                <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+                <ion-label class="quantity">0</ion-label>
+                <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+              </div>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -79,25 +84,31 @@
     </ion-row>
   </ion-grid>
   <ion-img class="ion-padding" src="assets/images/mango.jpg" alt="mango"></ion-img>
-  <ion-list>
-    <ion-item lines="none">
+  <ion-grid>
+    <ion-item color="light">
       <ion-list-header> Best Selling</ion-list-header>
-      <ion-button color="primary"> VIEW ALL </ion-button>
+      <ion-button color="primary" routerLink="/Category"> VIEW ALL </ion-button>
     </ion-item>
-
-    <ion-item>
-      <ion-thumbnail>
-        <img alt="Silhouette of mountains" src="assets/images/product22.jpg" />
-      </ion-thumbnail>
-      <ion-card-content>
-        <ion-label class="product-price">$449.00
-          <span class="discount-price">$222.78</span></ion-label>
-        <ion-badge color="primary" slot="end">5% OFF</ion-badge>
-        <ion-label>Hygienix Anti-Bacterial Hand Sanitizer (Bottle)</ion-label>
-      </ion-card-content>
-
-    </ion-item>
-
-  </ion-list>
+    <ion-row>
+      <ion-card>
+        <img width="80px" alt="Silhouette of mountains" src="assets/images/product22.jpg" />
+            <ion-card-content>
+            <ng-container>
+              <span class="product-price">$222.78</span> <span class="discount-price">$222.78</span>
+            </ng-container>
+            <ion-badge color="success" slot="end">5% OFF</ion-badge>
+            <ion-label>Hygienix Anti-Bacterial Hand Sanitizer (Bottle)</ion-label>
+            <div class="space-between">
+              <ion-note> 455 ml </ion-note>
+              <div class="space-between">
+                <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+                <ion-label>1</ion-label>
+                <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+              </div>
+            </div>
+          </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
   <ion-img class="ion-padding" src="assets/images/home4.jpg"></ion-img>
 </ion-content>

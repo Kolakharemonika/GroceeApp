@@ -7,21 +7,33 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light" class="ion-padding">
-  <div>
+  <!-- <div>
     <capacitor-google-map #map></capacitor-google-map>
     <button >Create Map</button>
-  </div>
-<ion-list class="ion-padding">
+  </div> -->
+<ion-list>
+<form action="">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Full Name <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" placeholder="Enter Full Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Phone Numbe <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input placeholder="Enter Phone Number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email Address <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input placeholder="Enter Email Address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Message <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input placeholder="Enter Message"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="ion-padding" size="small" expand="block">SEND MESSAGE</ion-button>
+</form>
 
-  <ion-input aria-label="Primary input" color="primary" label="Full Name" labelPlacement="stacked" placeholder="Enter Full Name"></ion-input>
-
-  <ion-input aria-label="Primary input" color="primary" label="Phone Number" labelPlacement="stacked" placeholder="Enter Phone Number"></ion-input>
-
-  <ion-input aria-label="Primary input" color="primary" label="Email Address" labelPlacement="stacked" placeholder="Enter Email Address"></ion-input>
-
-    <ion-input aria-label="Primary input" color="primary" label="Message" labelPlacement="stacked" placeholder="Enter Message"></ion-input>
-
-  <ion-button class="ion-padding-vertical" size="small" expand="block">SEND MESSAGE</ion-button>
 </ion-list>
 
 </ion-content>
