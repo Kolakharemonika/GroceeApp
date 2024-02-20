@@ -68,6 +68,10 @@ font-weight: 700;
       font-size: 12px;
 }
 }
+ion-button ion-badge{
+  right: 2px;
+  top: -3px;
+}
 ion-badge {
   font-weight: 600;
   position: absolute;
@@ -95,4 +99,22 @@ overflow: hidden;
   display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.card {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 8px !important;
+  border: none !important;
+  overflow: hidden !important;
+  background: white;
+  padding: 0px;
+  ion-row {
+    padding: 10px 0px;
+  }
+  ion-row:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+ion-thumbnail {
+  --size: 112px;
 }

@@ -6,7 +6,8 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon size="large" name="cart-outline"></ion-icon>
+        <ion-icon aria-hidden="true" slot="start"  size="large" name="cart-outline"></ion-icon>
+        <ion-badge>10</ion-badge>
       </ion-button>
     </ion-buttons>
     <ion-title>Shop List</ion-title>
@@ -14,4 +15,32 @@
 </ion-header>
 <ion-content color="light" class="ion-padding">
     <ion-searchbar color="white" placeholder="Search Favorites"></ion-searchbar>
+    <ion-text class="ion-text-center">
+      <p>Placed on Fri, 22 Jun, 8 PM - 11 PM</p>
+    </ion-text>
+    <ion-img  class="ion-padding" src="assets/images/shopList_img.jpg"></ion-img>
+    <ion-list style="background: var(--ion-color-light);">
+      <ion-card *ngFor="let item of itemList">
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <img [src]="item.img" alt="">
+          </ion-thumbnail>
+          <ion-card-content>
+            <ng-container>
+              <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
+            </ng-container>
+            <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
+            <ion-label> {{item.title}} </ion-label>
+            <div class="space-between">
+              <ion-note> {{item.quantity}} </ion-note>
+              <div class="space-between">
+                <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+                <ion-label class="ion-padding-horizontal">1</ion-label>
+                <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-item>
+      </ion-card>
+    </ion-list>
 </ion-content>

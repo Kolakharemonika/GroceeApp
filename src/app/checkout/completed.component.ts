@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-completed',
-  template: `<h1> completed</h1>`
+  template: `
+  <ion-button size="large" (click)="navigateHome()"> RETURN TO STORE  </ion-button>
+`
 })
 
 export class CompletedComponent {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  navigateHome(){
+    this.router.navigate(['/Home']);
+  }
 }

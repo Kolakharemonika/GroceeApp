@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,14 +8,17 @@ import { Component } from '@angular/core';
 <ion-header class="header">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/home" (click)="goto()"></ion-back-button>
+     <!-- <ion-button size="large">
+         <ion-icon name="arrow-back-sharp"></ion-icon>
+      </ion-button> -->
     </ion-buttons>
     <ion-title>Delivery Address</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
-  <form class="ion-padding">
-    <ion-list >
+  <form class="ion-padding" >
+    <ion-list  class="card">
       <ion-item>
         <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
         <ion-input type="text" placeholder="Enter Name"></ion-input>
@@ -56,6 +60,8 @@ import { Component } from '@angular/core';
 
 export class DeliveryAddressComponent {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  goto(){
+    this.router.navigate(['/Checkout']);
+  }
 }

@@ -7,20 +7,33 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light" class="ion-padding">
-  <ion-text>We will send an SMS with a confirmation code to this number</ion-text>
-
-  <form>
-    <ion-list>
-      <ion-item>
-        <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input aria-label="Phone Number" type="Phone" placeholder="Enter Phone Number"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Use your referral code here</ion-label>
-        <ion-input aria-label="Use your referral code here" type="text" placeholder="Enter Code"></ion-input>
-      </ion-item>
-    </ion-list>
-  </form>
-  <ion-button button="medium" expand="block">NEXT</ion-button>
+  <ion-grid class="card">
+    <ion-row lines="true">
+      <ion-col size="12" class="ion-text-center">
+        <ion-text>We will send an SMS with a confirmation code to this number</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <form class="ion-padding-horizontal">
+          <ion-list class="card">
+            <ion-item>
+              <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input type="Phone" placeholder="Enter Phone Number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Use your referral code here</ion-label>
+              <ion-input type="text" placeholder="Enter Code"></ion-input>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="goto()" button="medium" expand="block">NEXT</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

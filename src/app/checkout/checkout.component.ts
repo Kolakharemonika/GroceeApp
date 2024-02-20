@@ -1,13 +1,12 @@
 
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
-  template: `
-  
-  <ion-tabs>
+  template: `<ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="Address">
+    <ion-tab-button tab="DeliveryAddress">
       <ion-icon name="person-circle-outline"></ion-icon>
       Address
     </ion-tab-button>
@@ -20,11 +19,25 @@ import { Component } from '@angular/core';
       Complete
     </ion-tab-button>
   </ion-tab-bar>
-</ion-tabs>`
+</ion-tabs>
+`
 })
 
 export class CheckoutComponent {
+  showTab:number = 0;
 
-  constructor() { }
+  constructor(private router: Router,) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log(event.urlAfterRedirects, 'event.urlAfterRedirects');
+         if (event.urlAfterRedirects.indexOf("/Checkout/") == -1) {
+          this.showTab = 1;
+        } else {
+          console.log('2222');
+          this.showTab = 2;
+        }
+      }
+    });
+  }
 
 }

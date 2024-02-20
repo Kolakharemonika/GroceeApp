@@ -31,7 +31,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'Checkout', pathMatch: 'full' },
       { path: '', component: LoginComponent },
-      { path: 'Address', component: DeliveryAddressComponent },
+      { path: 'DeliveryAddress', component: DeliveryAddressComponent },
       { path: 'Completed', component: CompletedComponent },
       { path: 'Payment', component: PaymentComponent },
     ]

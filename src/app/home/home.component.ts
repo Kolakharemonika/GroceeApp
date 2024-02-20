@@ -12,7 +12,7 @@ export class HomeComponent {
     title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
     price: '$800.99',
     discountedPrice: '$600.99',
-    quantity:'2kg'
+    quantity:'2 kg'
   },
    {
       discount: '50% OFF',
@@ -20,7 +20,7 @@ export class HomeComponent {
       title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
       price: '$600.99',
       discountedPrice: '$800.99',
-      quantity: '2kg'
+      quantity: '2 kg'
     },
     {
       discount: '60% OFF',
@@ -28,7 +28,7 @@ export class HomeComponent {
       title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
       price: '$600.99',
       discountedPrice: '$800.99',
-      quantity: '2kg'
+      quantity: '2 kg'
     },
     {
       discount: null,
@@ -36,7 +36,7 @@ export class HomeComponent {
       title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
       price: '$600.99',
       discountedPrice: '$800.99',
-      quantity: '2kg'
+      quantity: '2 kg'
     }]
   constructor( ) {  }
 
