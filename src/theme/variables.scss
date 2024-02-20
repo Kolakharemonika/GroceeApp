@@ -5,14 +5,14 @@
 :root {
   /** primary **/
     --ion-color-primary: #e96125;
-      --ion-color-primary-rgb: 233, 97, 37;
-      --ion-color-primary-contrast: #ffffff;
-      --ion-color-primary-contrast-rgb: 255, 255, 255;
-      --ion-color-primary-shade: #e96125;
-      --ion-color-primary-tint: #e96125;
+    --ion-color-primary-rgb: 233, 97, 37;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #e96125;
+    --ion-color-primary-tint: #e96125;
 
   /** secondary **/
-  --ion-color-secondary: #3dc2ff;
+    --ion-color-secondary: #3dc2ff;
     --ion-color-secondary-rgb: 61, 194, 255;
     --ion-color-secondary-contrast: #ffffff;
     --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -68,26 +68,24 @@
     --ion-color-light-shade: #d7d8da;
     --ion-color-light-tint: #f5f6f9;
 
---ion-color-white: #ffffff;
-  --ion-color-white-rgb: 255, 255, 255;
-  --ion-color-white-contrast: #000000;
-  --ion-color-white-contrast-rgb: 0, 0, 0;
-  --ion-color-white-shade: #e0e0e0;
-  --ion-color-white-tint: #ffffff;
+    --ion-color-white: #ffffff;
+    --ion-color-white-rgb: 255, 255, 255;
+    --ion-color-white-contrast: #000000;
+    --ion-color-white-contrast-rgb: 0, 0, 0;
+    --ion-color-white-shade: #e0e0e0;
+    --ion-color-white-tint: #ffffff;
 
     --ion-color-darkblue: #003049;
-      --ion-color-darkblue-rgb:  0, 48, 73;
-      --ion-color-darkblue-contrast: #ffffff;
-      --ion-color-darkblue-contrast-rgb: 255, 255, 255;
-      --ion-color-darkblue-shade: #002a40;
-      --ion-color-darkblue-tint: #1a455b;
-  // --ion-item-background: transparent;
-  // --ion-toolbar-background: transparent;
-  // --ion-tab-bar-background: transparent;
-  // --ion-card-background: transparent;
-  --ion-toolbar-color: #fff;
+    --ion-color-darkblue-rgb:  0, 48, 73;
+    --ion-color-darkblue-contrast: #ffffff;
+    --ion-color-darkblue-contrast-rgb: 255, 255, 255;
+    --ion-color-darkblue-shade: #002a40;
+    --ion-color-darkblue-tint: #1a455b;
+
+    --ion-toolbar-color: #fff;
 
 }
+
 .ion-color-darkblue {
   --ion-color-base: var(--ion-color-darkblue);
   --ion-color-base-rgb: var(--ion-color-darkblue-rgb);
@@ -96,6 +94,7 @@
   --ion-color-shade: var(--ion-color-darkblue-shade);
   --ion-color-tint: var(--ion-color-darkblue-tint);
 }
+
 .ion-color-white {
   --ion-color-base: var(--ion-color-white);
   --ion-color-base-rgb: var(--ion-color-white-rgb);

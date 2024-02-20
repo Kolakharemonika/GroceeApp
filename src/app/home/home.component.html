@@ -6,7 +6,7 @@
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon size="large" aria-hidden="true" slot="start" name='cart-outline'></ion-icon>
-        <ion-badge>10</ion-badge>
+        <ion-badge slot="end" class="badge-top">10</ion-badge>
       </ion-button>
     </ion-buttons>
     <ng-container>
@@ -64,14 +64,14 @@
       <ion-col size="6" *ngFor="let item of itemList">
         <ion-card style="margin: 0px;">
           <ion-item lines="none">
-            <ion-badge color="primary" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
+            <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
             <ion-img [src]="item.img"  alt=""></ion-img>
           </ion-item>
 
           <ion-card-content>
             <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
-            <ion-label class="product-price">{{item.discountedPrice}}
-              <span class="discount-price">{{item.price}}</span></ion-label>
+            <ion-label class="discount-price">{{item.discountedPrice}}
+              <span class="product-price">{{item.price}}</span></ion-label>
             <div class="space-between">
               <ion-note> {{item.quantity}} </ion-note>
               <div class="space-between">

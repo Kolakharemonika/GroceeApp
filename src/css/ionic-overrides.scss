@@ -3,24 +3,53 @@
    ion-item {
     border-radius: 4px;
     ion-icon {
-        color: #616e7e;
-      }
+      color: #616e7e;
+    }
    }
 
    ion-item.selected {
     --background: rgba(var(--ion-color-primary-rgb), 0.14);
     --color: var(--ion-color-primary);
     ion-icon {
-        color: var(--ion-color-primary);
+      color: var(--ion-color-primary);
     }
    }
 
  }
+
 .input-label-placement-stacked.sc-ion-input-md-h {
   min-height: 65px !important;
 }
+
 capacitor-google-map {
   display: inline-block;
   width: 275px;
   height: 400px;
+}
+
+ion-card {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 8px !important;
+}
+
+ion-thumbnail {
+  --size: 100px;
+}
+
+ion-content:not(ion-header)>ion-searchbar {
+  --border-radius: 8px !important;
+}
+ion-button {
+  text-transform: capitalize;
+}
+ion-list-header:not(.mk) {
+  font-size: 22px;
+  font-weight: 600;
+  min-height: 38px;
+  padding: 0;
+}
+
+ion-header.header {
+  --ion-background-color: #003049;
+  --color: #fff;
 }
