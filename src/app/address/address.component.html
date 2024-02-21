@@ -4,67 +4,71 @@
       <ion-menu-button size="large"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-    <ion-button routerLink="/DeliveryAddress">
-      <ion-icon size="large" name="add-outline"></ion-icon>
-    </ion-button>
+      <ion-button routerLink="/DeliveryAddress">
+        <ion-icon size="large" name="add-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title> Address </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content color="light" class="ion-padding">
-  <ion-list>
-    <ion-item>
-      <ion-thumbnail>
-        <ion-icon size="large" name="home-outline"></ion-icon>
-      </ion-thumbnail>
-      <ion-card-header>
-        <ion-card-title>Home</ion-card-title>
-        <ion-card-subtitle> Osahan House, Jawaddi Kalan, Ludhiana, Punjab 141002, India</ion-card-subtitle>
-        <span>
+  <ion-grid>
+    <ion-card>
+      <ion-item>
+        <ion-thumbnail>
+          <ion-icon size="large" name="home-outline"></ion-icon>
+        </ion-thumbnail>
+        <ion-card-content>
+          <ion-card-header>
+            <ion-card-title>Home</ion-card-title>
+            <ion-card-subtitle> Osahan House, Jawaddi Kalan, Ludhiana, Punjab 141002, India</ion-card-subtitle>
+          </ion-card-header>
           <ion-button fill="clear">
             <ion-icon size="small" name="create-outline"></ion-icon>
             <ion-label>EDIT</ion-label> </ion-button>
           <ion-button fill="clear">
             <ion-icon size="small" name="trash-outline"></ion-icon>
             <ion-label>DELETE</ion-label> </ion-button>
-        </span>
-      </ion-card-header>
-    </ion-item>
-
-  <ion-item>
-    <ion-thumbnail>
-      <ion-icon size="large" name="briefcase-outline"></ion-icon>
-    </ion-thumbnail>
-    <ion-card-header>
-      <ion-card-title>Work</ion-card-title>
-      <ion-card-subtitle>NCC, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</ion-card-subtitle>
-      <span>
-        <ion-button fill="clear">
-          <ion-icon slot="start" size="small" name="create-outline"></ion-icon>
-          EDIT </ion-button>
-        <ion-button fill="clear">
-          <ion-icon slot="start"  size="small" name="trash-outline"></ion-icon>
-          DELETE </ion-button>
-      </span>
-    </ion-card-header>
-  </ion-item>
-  <ion-item>
-    <ion-thumbnail>
-      <ion-icon size="large" name="navigate-outline"></ion-icon>
-    </ion-thumbnail>
-    <ion-card-header>
-      <ion-card-title>Other</ion-card-title>
-      <ion-card-subtitle>GTTT, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</ion-card-subtitle>
-      <span>
-        <ion-button fill="clear">
-          <ion-icon size="small" name="create-outline"></ion-icon>
-          <ion-label>EDIT</ion-label> </ion-button>
-        <ion-button fill="clear">
-          <ion-icon size="small" name="trash-outline"></ion-icon>
-          <ion-label>DELETE</ion-label> </ion-button>
-      </span>
-    </ion-card-header>
-  </ion-item>
-  </ion-list>
-
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-thumbnail>
+          <ion-icon size="large" name="briefcase-outline"></ion-icon>
+        </ion-thumbnail>
+        <ion-card-content>
+          <ion-card-header>
+            <ion-card-title>Work</ion-card-title>
+            <ion-card-subtitle>NCC, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</ion-card-subtitle>
+          </ion-card-header>
+          <ion-button fill="clear">
+            <ion-icon slot="start" size="small" name="create-outline"></ion-icon>
+            EDIT </ion-button>
+          <ion-button fill="clear">
+            <ion-icon slot="start" size="small" name="trash-outline"></ion-icon>
+            DELETE </ion-button>
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-thumbnail>
+          <ion-icon size="large" name="navigate-outline"></ion-icon>
+        </ion-thumbnail>
+        <ion-card-content>
+          <ion-card-header>
+            <ion-card-title>Other</ion-card-title>
+            <ion-card-subtitle>GTTT, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</ion-card-subtitle>
+          </ion-card-header>
+          <ion-button fill="clear">
+            <ion-icon size="small" name="create-outline"></ion-icon>
+            <ion-label>EDIT</ion-label> </ion-button>
+          <ion-button fill="clear">
+            <ion-icon size="small" name="trash-outline"></ion-icon>
+            <ion-label>DELETE</ion-label> </ion-button>
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+  </ion-grid>
 </ion-content>

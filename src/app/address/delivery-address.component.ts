@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
 </ion-header>
 <ion-content color="light">
   <form class="ion-padding" >
-    <ion-list  class="card">
+    <ion-list class="card">
       <ion-item>
         <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
         <ion-input type="text" placeholder="Enter Name"></ion-input>
@@ -35,6 +35,7 @@ import { Router } from '@angular/router';
         <ion-label position="stacked">Locality <ion-text color="danger">*</ion-text></ion-label>
         <ion-input placeholder="Enter Locality"></ion-input>
       </ion-item>
+
       <ion-list>
         <ion-radio-group>
         <ion-list-header class="mk"> Nickname of your address </ion-list-header>

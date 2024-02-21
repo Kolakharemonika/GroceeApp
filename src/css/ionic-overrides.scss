@@ -53,3 +53,11 @@ ion-header.header {
   --ion-background-color: #003049;
   --color: #fff;
 }
+
+ion-list.input-list ion-item {
+  --min-height: 70px;
+}
+
+ion-list {
+  padding: 0px !important;
+}
