@@ -15,10 +15,10 @@ body {
      ion-card-title {
       font-weight: 600;
       line-height: 12px;
+      &:last-child {
+       color: var(--ion-color-warning);
+      }
      }
-    ion-card-title:last-child {
-     color: var(--ion-color-warning);
-    }
     ion-card-content {
       ion-note {
         font-size: 12px;
@@ -97,10 +97,40 @@ ion-button .badge-top {
   overflow: hidden !important;
   background: white;
   padding: 0px;
+
   ion-row {
     padding: 10px 0px;
-  }
-  ion-row:not(:last-child) {
-    border-bottom: 1px solid #ccc;
+    &:not(:last-child) {
+      border-bottom: 1px solid #ccc;
+    }
   }
 }
+
+ion-card-content {
+  // text-align: justify;
+}
+
+// swiper-container {
+//   &::part(bullet-active) {
+//     background-color: red;
+//   }
+// }
+
+// table {
+//   width: 100%;
+//   tr {
+//     line-height: 36px;
+//     &:last-child {
+//         border-top: 1px solid #ccc;
+//     }
+//   }
+//   th {
+//     text-align: left;
+//     &:last-child {
+//       text-align: right;
+//     }
+//   }
+//   td {
+//     text-align: right;
+//   }
+// }
