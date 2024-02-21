@@ -18,7 +18,7 @@
     <p> Placed on Fri, 22 Jun, 8 PM - 11 PM </p>
   </ion-text>
   <ion-img class="ion-padding" src="assets/images/shopList_img.jpg"></ion-img>
-  <ion-list style="background: var(--ion-color-light);">
+  <ion-grid>
     <ion-card *ngFor="let item of itemList">
       <ion-item lines="none">
         <ion-thumbnail slot="start">
@@ -41,5 +41,5 @@
         </ion-card-content>
       </ion-item>
     </ion-card>
-  </ion-list>
+  </ion-grid>
 </ion-content>

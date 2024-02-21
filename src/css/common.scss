@@ -134,3 +134,13 @@ ion-card-content {
 //     text-align: right;
 //   }
 // }
+.img-medium {
+  width: 80px;
+  margin: 0 auto;
+}
+.profile-col {
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid #ccc;
+}
