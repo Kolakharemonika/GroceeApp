@@ -6,8 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { CheckoutModule } from './checkout/checkout.module';
 
-import { CartService } from './services/cart-service';
-import { ItemsService } from './services/Items-service';
+import { CartService } from './shared/services/cart-service';
+import { ItemsService } from './shared/services/Items-service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -28,13 +28,14 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 import { PrivacyComponent } from './about-us/privacy.component';
 import { TermsConditionComponent } from './about-us/terms.component';
+import { SingleCardComponent } from './shared/components/single-card/single-card.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
                  OrdersListComponent, AddressComponent, ContactComponent, ProfileComponent,
                  CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
                  ShopListComponent, SingleProductComponent, CartComponent, DeliveryAddressComponent,
-                 AboutUsTabComponent, PrivacyComponent, TermsConditionComponent ],
+                 AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent ],
   imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
                 CartService, ItemsService],

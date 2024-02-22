@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
-import { ItemsService } from '../services/Items-service';
+import { ItemsService } from '../shared/services/Items-service';
 
 register();
 
