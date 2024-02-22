@@ -19,6 +19,9 @@ import { Component } from '@angular/core';
 
 export class PaymentComponent {
 
-  constructor() { }
+  constructor() {
+    console.log('payment');
+
+   }
 
 }

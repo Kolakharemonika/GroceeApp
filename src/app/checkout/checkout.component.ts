@@ -6,15 +6,15 @@ import { NavigationEnd, Router } from '@angular/router';
   selector: 'app-checkout',
   template: `<ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="DeliveryAddress">
+    <ion-tab-button layout="icon-top" tab="DeliveryAddress">
       <ion-icon name="person-circle-outline"></ion-icon>
       Address
     </ion-tab-button>
-    <ion-tab-button tab="Payment">
+    <ion-tab-button layout="icon-top" tab="Payment">
       <ion-icon name="navigate-circle-outline"></ion-icon>
       Payment
     </ion-tab-button>
-    <ion-tab-button tab="Completed">
+    <ion-tab-button layout="icon-top" tab="Completed">
       <ion-icon name="checkmark-circle-outline"></ion-icon>
       Complete
     </ion-tab-button>

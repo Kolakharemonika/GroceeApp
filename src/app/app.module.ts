@@ -5,7 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CheckoutModule } from './checkout/checkout.module';
-import { AboutUsModule } from './about-us/about-us.module';
+// import { AboutUsModule } from './about-us/about-us.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -24,15 +24,17 @@ import { ErrorComponent } from './error/error.component';
 import { DeliveryAddressComponent } from './address/delivery-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutUsTabComponent } from './about-us/about-us-tab.component';
+import { PrivacyComponent } from './about-us/privacy.component';
+import { TermsConditionComponent } from './about-us/terms.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
     OrdersListComponent, AddressComponent, ContactComponent, ProfileComponent,
     CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
     ShopListComponent, SingleProductComponent, CartComponent, DeliveryAddressComponent,
-    AboutUsTabComponent
+    AboutUsTabComponent, PrivacyComponent, TermsConditionComponent
   ],
-  imports: [BrowserModule, CheckoutModule, AboutUsModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

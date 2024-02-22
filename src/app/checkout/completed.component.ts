@@ -13,6 +13,6 @@ export class CompletedComponent {
 
   constructor(private router: Router) { }
   navigateHome(){
-    this.router.navigate(['/Home']);
+    this.router.navigate(['']);
   }
 }

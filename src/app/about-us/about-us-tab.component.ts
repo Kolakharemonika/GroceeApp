@@ -6,16 +6,17 @@ import { Component } from '@angular/core';
   template: `
    <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="Privacy" routerdirection="forward">
+        <ion-tab-button layout="icon-top" tab="Privacy" routerdirection="forward">
           <ion-icon name="lock-closed"></ion-icon>
           <ion-label>Privacy & Policy</ion-label>
         </ion-tab-button>
-        <ion-tab-button tab="Terms" routerdirection="forward">
+        <ion-tab-button layout="icon-top" tab="Terms" routerdirection="forward">
           <ion-icon name="folder"></ion-icon>
           <ion-label>Terms & conditions</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
-    </ion-tabs>`
+    </ion-tabs>
+    `
 })
 
 export class AboutUsTabComponent {
