@@ -5,7 +5,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CheckoutModule } from './checkout/checkout.module';
-// import { AboutUsModule } from './about-us/about-us.module';
+
+import { CartService } from './services/cart-service';
+import { ItemsService } from './services/Items-service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -29,13 +31,13 @@ import { TermsConditionComponent } from './about-us/terms.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
-    OrdersListComponent, AddressComponent, ContactComponent, ProfileComponent,
-    CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
-    ShopListComponent, SingleProductComponent, CartComponent, DeliveryAddressComponent,
-    AboutUsTabComponent, PrivacyComponent, TermsConditionComponent
-  ],
+                 OrdersListComponent, AddressComponent, ContactComponent, ProfileComponent,
+                 CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
+                 ShopListComponent, SingleProductComponent, CartComponent, DeliveryAddressComponent,
+                 AboutUsTabComponent, PrivacyComponent, TermsConditionComponent ],
   imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+                CartService, ItemsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

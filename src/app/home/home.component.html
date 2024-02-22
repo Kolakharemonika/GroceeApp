@@ -64,8 +64,8 @@
       <ion-col size="6" *ngFor="let item of itemList">
         <ion-card style="margin: 0px;">
           <ion-item lines="none">
-            <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
-            <ion-img [src]="item.img"  alt=""></ion-img>
+            <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
+            <ion-img [src]="item.avatar"  alt=""></ion-img>
           </ion-item>
 
           <ion-card-content>
@@ -97,13 +97,13 @@
       <ion-card *ngFor="let item of itemList">
         <ion-item lines="none" >
           <ion-thumbnail slot="start">
-            <img [src]="item.img" alt="">
+            <ion-img [src]="item.avatar" alt=""> </ion-img>
           </ion-thumbnail>
           <ion-card-content>
             <ng-container>
               <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
             </ng-container>
-            <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
+            <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
             <ion-label> {{item.title}} </ion-label>
             <div class="space-between">
               <ion-note> {{item.quantity}} </ion-note>

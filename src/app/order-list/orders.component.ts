@@ -14,7 +14,6 @@ export class OrdersListComponent {
     amount: '800.99',
     finalAmount: '600.99',
     status: 'cancel',
-    
   },
   {
     deliveryCharge: '520,00',

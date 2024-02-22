@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ItemsService } from '../services/Items-service';
 
 @Component({
   selector: 'app-home',
@@ -6,39 +7,11 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-  itemList:any = [{
-    discount: '50% OFF',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-    price: '800.99',
-    discountedPrice: '600.99',
-    quantity:'2 kg'
-  },
-   {
-      discount: '50% OFF',
-      img: 'assets/images/product1.jpg',
-      title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-      price: '800.99',
-      discountedPrice: '600.99',
-      quantity: '2 kg'
-    },
-    {
-      discount: '60% OFF',
-      img: 'assets/images/product1.jpg',
-      title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-      price: '800.99',
-      discountedPrice: '600.99',
-      quantity: '2 kg'
-    },
-    {
-      discount: null,
-      img: 'assets/images/product1.jpg',
-      title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-      price: '800.99',
-      discountedPrice: '600.99',
-      quantity: '2 kg'
-    }]
-  constructor( ) {  }
+  itemList: any = {}
+
+  constructor(private itemsService: ItemsService ) {
+    this.itemList = this.itemsService.getItems();
+   }
 
 
 }

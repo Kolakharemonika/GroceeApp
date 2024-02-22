@@ -38,15 +38,15 @@
 
   </ion-list>
   <ion-list class="card ion-margin-top" lines="full">
-    <ion-item *ngFor="let item of itemList">
+    <ion-item *ngFor="let item of itemsList">
       <ion-thumbnail slot="start">
-        <img [src]="item.img" alt="">
+        <ion-img [src]="item.avatar" alt=""></ion-img>
       </ion-thumbnail>
       <ion-card-content>
         <ng-container>
           <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
         </ng-container>
-        <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
+        <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
         <ion-label> {{item.title}} </ion-label>
         <div class="space-between">
           <ion-note> {{item.quantity}} </ion-note>

@@ -19,16 +19,16 @@
   </ion-text>
   <ion-img class="ion-padding" src="assets/images/shopList_img.jpg"></ion-img>
   <ion-grid>
-    <ion-card *ngFor="let item of itemList">
+    <ion-card *ngFor="let item of itemsList">
       <ion-item lines="none">
         <ion-thumbnail slot="start">
-          <img [src]="item.img" alt="">
+          <img [src]="item.avatar" alt="">
         </ion-thumbnail>
         <ion-card-content>
           <ng-container>
             <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
           </ng-container>
-          <ion-badge class="badge-top" color="success" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
+          <ion-badge class="badge-top" color="success" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
           <ion-label> {{item.title}} </ion-label>
           <div class="space-between">
             <ion-note> {{item.quantity}} </ion-note>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ItemsService } from '../services/Items-service';
 
 
 @Component({
@@ -8,41 +9,14 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 
 export class ShopListComponent {
-  itemList: any = [{
-    discount: '50% OFF',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-    price: '800.99',
-    discountedPrice: '600.99',
-    quantity: '2 kg'
-  },
-  {
-    discount: '50% OFF',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-    price: '600.99',
-    discountedPrice: '800.99',
-    quantity: '2 kg'
-  },
-  {
-    discount: '60% OFF',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-    price: '600.99',
-    discountedPrice: '800.99',
-    quantity: '2 kg'
-  },
-  {
-    discount: null,
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic Top Load Detergent Powder(Carton)',
-    price: '600.99',
-    discountedPrice: '800.99',
-    quantity: '2 kg'
-  }]
+  itemsList: any = {}
   selectedType:any;
   date:any;
-  constructor(private route: ActivatedRoute,) {
+
+  constructor( private route: ActivatedRoute,
+               private itemsService: ItemsService ) {
+
+    this.itemsList = this.itemsService.getItems();
     this.route.queryParams.subscribe(params => {
 
       if (params['type']) {
