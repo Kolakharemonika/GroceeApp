@@ -18,6 +18,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PaymentComponent } from './checkout/payment.component';
 import { CompletedComponent } from './checkout/completed.component';
 import { LoginComponent } from './checkout/login/login.component';
+import { PrivacyComponent } from './about-us/privacy.component';
+import { TermsConditionComponent } from './about-us/terms.component';
+import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,7 +42,15 @@ const routes: Routes = [
   { path: 'Profile', component: ProfileComponent },
   { path: 'Address', component: AddressComponent },
   { path: 'Orders', component: OrdersListComponent },
-  { path: 'About-Us', component: AboutUsComponent },
+  {
+    path: 'About-Us', component: AboutUsTabComponent ,
+    children: [
+      { path: '', redirectTo: 'About-Us', pathMatch: 'full' },
+      { path: '', component: AboutUsComponent },
+      { path: 'Privacy', component: PrivacyComponent },
+      { path: 'Terms', component: TermsConditionComponent },
+    ]
+  },
   { path: 'Faq', component: FaqComponent },
   { path: 'Contact-Us', component: ContactComponent },
   { path: 'Error', component: ErrorComponent },

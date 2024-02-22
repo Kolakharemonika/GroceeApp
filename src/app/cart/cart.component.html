@@ -24,7 +24,7 @@
     <ion-item>
       <ion-label color="secondary">
         <ion-icon slot="start" size="small" name="cash-outline"></ion-icon>
-      Club Member Savings </ion-label>
+        Club Member Savings </ion-label>
       <ion-label class="ion-text-end"> Not a member </ion-label>
     </ion-item>
     <ion-item lines="full">
@@ -32,41 +32,41 @@
       <ion-label color="danger" class="ion-text-end"> +&#8377;90,00</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label> <strong>Sub Title</strong>  </ion-label>
+      <ion-label> <strong>Sub Title</strong> </ion-label>
       <ion-label class="ion-text-end"> <strong>+&#8377;433,00</strong> </ion-label>
     </ion-item>
 
-</ion-list>
-<ion-list class="card ion-margin-top" lines="full">
-  <ion-item *ngFor="let item of itemList">
-    <ion-thumbnail slot="start">
-      <img [src]="item.img" alt="">
-    </ion-thumbnail>
-    <ion-card-content>
-      <ng-container>
-        <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
-      </ng-container>
-      <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
-      <ion-label> {{item.title}} </ion-label>
-      <div class="space-between">
-        <ion-note> {{item.quantity}} </ion-note>
+  </ion-list>
+  <ion-list class="card ion-margin-top" lines="full">
+    <ion-item *ngFor="let item of itemList">
+      <ion-thumbnail slot="start">
+        <img [src]="item.img" alt="">
+      </ion-thumbnail>
+      <ion-card-content>
+        <ng-container>
+          <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
+        </ng-container>
+        <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} </ion-badge>
+        <ion-label> {{item.title}} </ion-label>
         <div class="space-between">
-          <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
-          <ion-label class="ion-padding-horizontal">1</ion-label>
-          <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+          <ion-note> {{item.quantity}} </ion-note>
+          <div class="space-between">
+            <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+            <ion-label class="ion-padding-horizontal">1</ion-label>
+            <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+          </div>
         </div>
-      </div>
-    </ion-card-content>
-  </ion-item >
-</ion-list>
+      </ion-card-content>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary" routerLink="/Checkout"  routerDirection="root">
+  <ion-toolbar color="primary" routerLink="/Checkout" routerDirection="root">
     <ion-buttons slot="start" color="light">
       <ion-button size="large">
-         <ion-label class="space-between"><ion-icon slot="start" size="large" name="cart-outline"></ion-icon> <span>Proceed to Checkout</span> </ion-label>
-        </ion-button>
+        <ion-label class="space-between"><ion-icon slot="start" size="large" name="cart-outline"></ion-icon> <span>Proceed to Checkout</span> </ion-label>
+      </ion-button>
     </ion-buttons>
     <ion-buttons slot="end" color="light">
       <ion-button size="large">
