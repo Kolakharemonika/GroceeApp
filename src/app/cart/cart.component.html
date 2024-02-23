@@ -35,29 +35,10 @@
       <ion-label> <strong>Sub Title</strong> </ion-label>
       <ion-label class="ion-text-end"> <strong>+&#8377;433,00</strong> </ion-label>
     </ion-item>
-
   </ion-list>
+
   <ion-list class="card ion-margin-top" lines="full">
-    <ion-item *ngFor="let item of itemsList">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="item.avatar" alt=""></ion-img>
-      </ion-thumbnail>
-      <ion-card-content>
-        <ng-container>
-          <span class="discount-price"> {{item.discountedPrice}} </span> <span class="product-price"> {{item.price}} </span>
-        </ng-container>
-        <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
-        <ion-label> {{item.title}} </ion-label>
-        <div class="space-between">
-          <ion-note> {{item.quantity}} </ion-note>
-          <div class="space-between">
-            <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
-            <ion-label class="ion-padding-horizontal">1</ion-label>
-            <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-item>
+      <app-single-card [item]="item" *ngFor="let item of itemsList"></app-single-card>
   </ion-list>
 </ion-content>
 

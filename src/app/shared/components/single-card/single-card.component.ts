@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CartService } from '../../../services/cart-service';
 
 @Component({
   selector: 'app-single-card',
@@ -6,11 +7,29 @@ import { Component, Input } from '@angular/core';
 })
 
 export class SingleCardComponent {
-  @Input() item:any;
+  @Input() item: any;
 
-  constructor() {
-    
-   }
+  constructor(private cartService: CartService) { }
 
+  addItem() {
+    // if (!this.isCartScreen && this.menu.attributes?.length) {
+    //   this.presentActionSheet('add', this.menu.attributes);
+    // } else {
+      this.cartService.updateCartMenuItemsQty(this.item, 'add');
+      // this.updateQtyLocally();
+    // }
+  }
 
+  removeItem() {
+    // if (this.menu.status >= 50) {
+    //   this.toast.show('Menu Item is being prepared.', 'warning');
+    //   return;
+    // }
+
+    // if (this.item.orderItemId && this.selectedQty === 1) {
+      // this.openModel();
+    //   return;
+    // }
+
+  }
 }

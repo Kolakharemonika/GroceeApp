@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { ItemsService } from '../shared/services/Items-service';
+import { ItemsService } from '../services/Items-service';
 
 
 @Component({

@@ -11,9 +11,9 @@
     <div class="space-between">
       <ion-note> {{item.quantity}} </ion-note>
       <div class="space-between">
-        <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+        <ion-icon (click)="removeItem()" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
         <ion-label class="ion-padding-horizontal">1</ion-label>
-        <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+        <ion-icon (click)="addItem()" size="large" name="add-circle-sharp" color="primary"></ion-icon>
       </div>
     </div>
   </ion-card-content>

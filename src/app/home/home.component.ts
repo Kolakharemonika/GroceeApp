@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ItemsService } from '../shared/services/Items-service';
+import { ItemsService } from '../services/Items-service';
 
 @Component({
   selector: 'app-home',
