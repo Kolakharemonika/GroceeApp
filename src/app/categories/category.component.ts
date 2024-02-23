@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
-import { ItemsService } from '../shared/services/Items-service';
+import { ItemsService } from '../services/Items-service';
 
 register();
 
@@ -15,7 +15,9 @@ export class CategoryComponent {
 
   constructor( public router: Router,
                private itemsService: ItemsService) {
-    this.categories = this.itemsService.getCategories();
+    this.itemsService.getCategories().then(data => {
+      this.categories = data;
+    });
    }
 
 
