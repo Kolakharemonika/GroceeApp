@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CartService } from '../../../services/cart-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-card',
@@ -9,7 +10,8 @@ import { CartService } from '../../../services/cart-service';
 export class SingleCardComponent {
   @Input() item: any;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,
+              private router: Router) { }
 
   addItem() {
     // if (!this.isCartScreen && this.menu.attributes?.length) {
@@ -31,5 +33,9 @@ export class SingleCardComponent {
     //   return;
     // }
 
+  }
+
+  gotoItem(type: string) {
+    this.router.navigate(['/Product'], { queryParams: { type } });
   }
 }

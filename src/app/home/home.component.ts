@@ -10,8 +10,11 @@ export class HomeComponent {
   itemsList: any = [];
 
   constructor(private itemsService: ItemsService ) {
-    this.itemsService.getItems().then(data => {
-      this.itemsList = data;
+
+    this.itemsService.getItems().then((resp: any) => {
+      if (resp) {
+          this.itemsList = this.itemsService.itemsList;
+      }
     });
   }
 

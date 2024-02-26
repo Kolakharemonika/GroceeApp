@@ -14,7 +14,6 @@ export class ShopListComponent implements OnInit{
   date:any;
 
   constructor( private route: ActivatedRoute,
-               private router: Router,
                private itemsService: ItemsService ) {
 
     this.route.queryParams.subscribe(params => {
@@ -42,7 +41,5 @@ export class ShopListComponent implements OnInit{
     });
   }
 
-  gotoItem(type: string) {
-    this.router.navigate(['/Product'], { queryParams: { type } });
-  }
+
 }
