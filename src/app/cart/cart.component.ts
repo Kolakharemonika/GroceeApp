@@ -7,10 +7,14 @@ import { ItemsService } from '../services/Items-service';
 })
 
 export class CartComponent {
-  itemsList: any = {}
+  itemsList: any = []
 
   constructor(private itemsService: ItemsService) {
-    this.itemsList = this.itemsService.getItems();
+    this.itemsService.getItems().then(resp => {
+    if (resp)   {
+      this.itemsList = this.itemsService.itemsList ;;
+    }
+    });
   }
 
 }

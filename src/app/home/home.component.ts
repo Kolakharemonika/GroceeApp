@@ -7,11 +7,12 @@ import { ItemsService } from '../services/Items-service';
 })
 
 export class HomeComponent {
-  itemList: any = {}
+  itemsList: any = [];
 
   constructor(private itemsService: ItemsService ) {
-    this.itemList = this.itemsService.getItems();
-   }
-
+    this.itemsService.getItems().then(data => {
+      this.itemsList = data;
+    });
+  }
 
 }

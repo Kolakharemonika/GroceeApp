@@ -61,8 +61,8 @@
     </ion-text>
     <h6>View All</h6>
     <ion-row>
-      <ion-col size="6" *ngFor="let item of itemList">
-        <ion-card style="margin: 0px;">
+      <ion-col size="6" *ngFor="let item of itemsList; let i=index">
+        <ion-card style="margin: 0px;" *ngIf="i<=3">
           <ion-item lines="none">
             <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
             <ion-img [src]="item.avatar"  alt=""></ion-img>
@@ -94,9 +94,8 @@
       <ion-button color="primary" routerLink="/Category"> VIEW ALL </ion-button>
     </ion-item>
     <ion-list style="background: var(--ion-color-light);">
-      <ion-card *ngFor="let item of itemList">
+      <ion-card *ngFor="let item of itemsList">
         <app-single-card [item]="item"></app-single-card>
-
       </ion-card>
     </ion-list>
 

@@ -17,16 +17,16 @@
     <swiper-slide> <img src="assets/images/single_product_2.jpg" alt="single product img"> </swiper-slide>
     <swiper-slide> <img src="assets/images/single_product_3.jpg" alt="single product img"> </swiper-slide>
   </swiper-container>
-  <ion-row class="ion-padding">
+  <ion-row class="ion-padding" *ngIf="product">
     <ion-card>
       <ion-card-header>
-        <ion-card-title> Surf Excel Matic Top Load Detergent Powder(Carton) </ion-card-title>
+        <ion-card-title *ngIf="product.title"> {{ product.title }} </ion-card-title>
         <ion-label>
           <ion-icon size="small" name="checkmark-circle-outline"></ion-icon> <strong>Available in</strong> - 500 gm</ion-label>
         <ion-note>
-          <ion-label class="discount-price"> &#8377;600.99
-            <span class="product-price"> &#8377;800.99 </span>
-            <ion-badge color="success" slot="end"> 50% OFF</ion-badge>
+          <ion-label class="discount-price"> &#8377; {{product.discountedPrice}}
+            <span class="product-price"> &#8377; {{product.price}} </span>
+            <ion-badge color="success" slot="end"> {{product.discount}}% OFF</ion-badge>
           </ion-label>
 
         </ion-note>
@@ -34,7 +34,7 @@
       <ion-card-content>
 
         <div class="space-between">
-          <ion-note color="success"> <ion-icon name="star-outline"></ion-icon> 4.4 </ion-note>
+          <ion-note color="success"> <ion-icon name="star-outline"></ion-icon> {{product.rating}} </ion-note>
           <div class="space-between">
             <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
             <ion-label class="ion-padding-horizontal">1</ion-label>

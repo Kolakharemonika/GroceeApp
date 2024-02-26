@@ -20,7 +20,7 @@
   <ion-img class="ion-padding" src="assets/images/shopList_img.jpg"></ion-img>
   <ion-grid>
     <ion-card *ngFor="let item of itemsList">
-      <app-single-card [item]="item"></app-single-card>
+      <app-single-card [item]="item" (click)="gotoItem(item.id)"></app-single-card>
     </ion-card>
   </ion-grid>
 </ion-content>
