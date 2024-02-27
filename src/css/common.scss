@@ -144,3 +144,8 @@ ion-card-content {
   align-items: center;
   border-right: 1px solid #ccc;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}

@@ -85,11 +85,11 @@ export class MenuItem {
     discountedPrice: number;
     discountPercentage: string;
 
-    note: string;
     serveQuantity: number;
     unit: number;
 
     quantity: number;
+    measures: string;
 
     rating: number;
 
@@ -106,7 +106,7 @@ export class MenuItem {
             this.discountedPrice = jsonObj.discountedPrice ? +jsonObj.discountedPrice : 0;
             this.discountPercentage = jsonObj.discountPercentage ? jsonObj.discountPercentage : '';
 
-            this.note = jsonObj.note ? jsonObj.note : '';
+            this.measures = jsonObj.measures ? jsonObj.measures : '';
             this.serveQuantity = jsonObj.serveQuantity ? jsonObj.serveQuantity : 0;
             this.unit = jsonObj.unit ? jsonObj.unit : 0;
             this.rating = jsonObj.rating ? jsonObj.rating : 0;
@@ -123,8 +123,7 @@ export class MenuItem {
             this.totalCost = 0;
             this.discountedPrice = 0;
             this.discountPercentage = '';
-
-            this.note = '';
+            this.measures = '';
             this.serveQuantity = 0;
             this.unit = 0;
             this.rating = 0;

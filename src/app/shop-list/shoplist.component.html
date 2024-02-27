@@ -6,7 +6,7 @@
     <ion-buttons slot="end">
       <ion-button  routerLink="/Cart" routerDirection="root">
         <ion-icon aria-hidden="true" slot="start" size="large" name="cart-outline"></ion-icon>
-        <ion-badge class="badge-top">10</ion-badge>
+        <ion-badge class="badge-top" *ngIf="cartService.getTotalOrderItemsCount">{{ cartService.getTotalOrderItemsCount()}}</ion-badge>
       </ion-button>
     </ion-buttons>
     <ion-title>Shop List</ion-title>

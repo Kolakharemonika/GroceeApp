@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ItemsService } from '../services/Items-service';
+import { CartService } from '../services/cart-service';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class ShopListComponent implements OnInit{
   date: any;
 
   constructor( private route: ActivatedRoute,
-               private itemsService: ItemsService ) {
+               private itemsService: ItemsService,
+               public cartService: CartService
+               ) {
 
     this.route.queryParams.subscribe(params => {
 

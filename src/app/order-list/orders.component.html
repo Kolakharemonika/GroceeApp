@@ -12,10 +12,10 @@
     <p> Placed on Fri, 22 Jun, 8 PM - 11 PM </p>
   </ion-text>
   <ion-grid>
-    <ion-card *ngFor="let item of itemList">
+    <ion-card *ngFor="let item of itemsList" (click)="gotoProduct(item.id)">
       <ion-item lines="full">
         <ion-thumbnail slot="start">
-          <img [src]="item.img" alt="">
+          <img [src]="item.avatar" alt="">
         </ion-thumbnail>
         <ion-card-header>
           <ion-card-title>{{item.title}}</ion-card-title>

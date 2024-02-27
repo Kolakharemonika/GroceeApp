@@ -6,7 +6,7 @@
     <ion-buttons slot="end">
       <ion-button  routerLink="/Cart" routerDirection="root">
         <ion-icon size="large" aria-hidden="true" slot="start" name='cart-outline'></ion-icon>
-        <ion-badge slot="end" class="badge-top">10</ion-badge>
+        <ion-badge slot="end" class="badge-top" *ngIf="cartService.getTotalOrderItemsCount()">{{ cartService.getTotalOrderItemsCount()}}</ion-badge>
       </ion-button>
     </ion-buttons>
     <ng-container>
@@ -61,8 +61,8 @@
     </ion-text>
     <h6>View All</h6>
     <ion-row>
-      <ion-col size="6" *ngFor="let item of itemsList; let i=index">
-        <ion-card style="margin: 0px;" *ngIf="i<=3">
+      <ion-col size="6" *ngFor="let item of itemsList;">
+        <ion-card style="margin: 0px;">
           <ion-item lines="none">
             <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}}&#37; OFF </ion-badge>
             <ion-img [src]="item.avatar"  alt=""></ion-img>
@@ -70,15 +70,15 @@
 
           <ion-card-content>
             <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
-            <ion-label class="discount-price">{{item.discountedPrice}}
-              <span class="product-price">{{item.price}}</span></ion-label>
+            <ion-label class="discount-price">&#8377;{{item.discountedPrice}}
+              <span class="product-price">&#8377;{{item.price}}</span></ion-label>
+          </ion-card-content>
+          <ion-card-content class="space-between">
+            <ion-note> {{item.measures}} </ion-note>
             <div class="space-between">
-              <ion-note> {{item.quantity}} </ion-note>
-              <div class="space-between">
-                <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
-                <ion-label class="quantity ion-padding-horizontal">0</ion-label>
-                <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
-              </div>
+              <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+              <ion-label class="ion-padding-horizontal">{{item.quantity}}</ion-label>
+              <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
             </div>
           </ion-card-content>
         </ion-card>
@@ -94,7 +94,7 @@
       <ion-button color="primary" routerLink="/Category"> VIEW ALL </ion-button>
     </ion-item>
     <ion-list style="background: var(--ion-color-light);">
-      <ion-card *ngFor="let item of itemsList">
+      <ion-card *ngFor="let item of itemsList;">
         <app-single-card [item]="item"></app-single-card>
       </ion-card>
     </ion-list>

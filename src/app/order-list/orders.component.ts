@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ItemsService } from '../services/Items-service';
 
 
 @Component({
@@ -6,31 +8,21 @@ import { Component } from '@angular/core';
   templateUrl: 'orders.component.html'
 })
 
-export class OrdersListComponent {
-  itemList: any = [{
-    deliveryCharge: '',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic',
-    amount: '800.99',
-    finalAmount: '600.99',
-    status: 'cancel',
-  },
-  {
-    deliveryCharge: '520,00',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic',
-    amount: '600.99',
-    finalAmount: '800.99',
-    status: 'success'
-  },
-  {
-    deliveryCharge: '',
-    img: 'assets/images/product1.jpg',
-    title: 'Surf Excel Matic',
-    amount: '600.99',
-    finalAmount: '800.99',
-    status: 'cancel'
-  },]
-  constructor() { }
+export class OrdersListComponent implements OnInit {
+  itemsList: any = []
 
+  constructor(private router: Router,
+    private itemsService: ItemsService) {
+
+   }
+   ngOnInit() {
+     this.itemsService.getItems().then((resp: any) => {
+      if (!resp)  return;
+      this.itemsList = this.itemsService.itemsList;
+     });
+   }
+
+  gotoProduct(product: string) {
+    this.router.navigate(['/Product'], { queryParams: { product } });
+  }
 }

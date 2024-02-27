@@ -4,8 +4,9 @@
       <ion-menu-button size="large"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon size="large" name="cart-outline"></ion-icon>
+      <ion-button routerLink="/Cart" routerDirection="root">
+        <ion-icon size="large" aria-hidden="true" slot="start" name='cart-outline'></ion-icon>
+        <ion-badge slot="end" class="badge-top" *ngIf="cartService.getTotalOrderItemsCount()">{{ cartService.getTotalOrderItemsCount()}}</ion-badge>
       </ion-button>
     </ion-buttons>
     <ion-title>Single Product</ion-title>
@@ -36,9 +37,9 @@
         <div class="space-between">
           <ion-note color="success"> <ion-icon name="star-outline"></ion-icon> {{product.rating}} </ion-note>
           <div class="space-between">
-            <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
-            <ion-label class="ion-padding-horizontal">1</ion-label>
-            <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
+            <ion-icon (click)="removeItem()" [class.disabled]="selectedQty===0" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+            <ion-label class="ion-padding-horizontal">{{selectedQty}}</ion-label>
+            <ion-icon (click)="addItem()" size="large" name="add-circle-sharp" color="primary"></ion-icon>
           </div>
         </div>
       </ion-card-content>
