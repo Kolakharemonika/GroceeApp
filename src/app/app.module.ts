@@ -2,6 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/services/token-interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CheckoutModule } from './checkout/checkout.module';
@@ -29,15 +31,15 @@ import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 import { PrivacyComponent } from './about-us/privacy.component';
 import { TermsConditionComponent } from './about-us/terms.component';
 import { SingleCardComponent } from './shared/components/single-card/single-card.component';
-import { ApiService } from './shared/services/api-service';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './shared/services/token-interceptor';
+import { WishListComponent } from './wish-list/wishlist.component';
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
                  OrdersListComponent, AddressComponent, ContactComponent, ProfileComponent,
                  CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
                  ShopListComponent, SingleProductComponent, CartComponent, DeliveryAddressComponent,
-                 AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent ],
+                 AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent,
+                 WishListComponent ],
   imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{
     provide: HTTP_INTERCEPTORS,

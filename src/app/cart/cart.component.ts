@@ -9,9 +9,9 @@ import { CartService } from '../services/cart-service';
 export class CartComponent {
   itemsList: any = []
 
-  constructor(private cartService: CartService) {
+  constructor(public cartService: CartService) {
     if (this.cartService.cartMenuItems) {
-      this.itemsList = Object.values(this.cartService.cartMenuItems);
+      this.itemsList = this.cartService.getCartItems();
     } else {
 
     }

@@ -21,6 +21,7 @@ import { LoginComponent } from './checkout/login/login.component';
 import { PrivacyComponent } from './about-us/privacy.component';
 import { TermsConditionComponent } from './about-us/terms.component';
 import { AboutUsTabComponent } from './about-us/about-us-tab.component';
+import { WishListComponent } from './wish-list/wishlist.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
       { path: 'Terms', component: TermsConditionComponent },
     ]
   },
+  { path: 'Wishlist', component: WishListComponent },
   { path: 'Faq', component: FaqComponent },
   { path: 'Contact-Us', component: ContactComponent },
   { path: 'Error', component: ErrorComponent },

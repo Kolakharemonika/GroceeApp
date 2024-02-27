@@ -37,7 +37,7 @@
         <div class="space-between">
           <ion-note color="success"> <ion-icon name="star-outline"></ion-icon> {{product.rating}} </ion-note>
           <div class="space-between">
-            <ion-icon (click)="removeItem()" [class.disabled]="selectedQty===0" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+            <ion-icon (click)="removeItem()" [class.disabled]="selectedQty === 0" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
             <ion-label class="ion-padding-horizontal">{{selectedQty}}</ion-label>
             <ion-icon (click)="addItem()" size="large" name="add-circle-sharp" color="primary"></ion-icon>
           </div>

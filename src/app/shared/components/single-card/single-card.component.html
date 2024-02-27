@@ -1,6 +1,7 @@
 <ion-item>
-  <ion-thumbnail slot="start" (click)="gotoProduct(item.id)">
-    <ion-img [src]="item.avatar" alt=""> </ion-img>
+  <ion-thumbnail slot="start">
+    <ion-img [src]="item.avatar" alt="" > </ion-img>
+    <ion-icon (click)="addToWishlist()" [name]="item.isWishlist ? 'heart-sharp' : 'heart-outline' "></ion-icon>
   </ion-thumbnail>
   <ion-card-header class="ion-no-padding">
   <ion-card-content (click)="gotoProduct(item.id)">
@@ -13,7 +14,7 @@
   <ion-card-content class="space-between">
       <ion-note> {{item.measures}} </ion-note>
       <div class="space-between">
-        <ion-icon [class.disabled]="selectedQty===0" (click)="removeItem()" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+        <ion-icon [class.disabled]="selectedQty === 0" (click)="removeItem()" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
         <ion-label class="ion-padding-horizontal">{{ selectedQty }}</ion-label>
         <ion-icon (click)="addItem()" size="large" name="add-circle-sharp" color="primary"></ion-icon>
       </div>

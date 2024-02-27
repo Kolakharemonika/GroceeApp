@@ -11,6 +11,7 @@ export class HeaderComponent {
     { title: 'Categories', url: '/Category', icon: 'list' },
     { title: 'Shop List', url: '/Shoplist', icon: 'grid' },
     // { title: 'Single Product', url: '/Product', icon: 'pricetag' },
+    { title: 'Wish List', url: '/Wishlist', icon: 'bookmarks' },
     { title: 'Shopping Cart', url: '/Cart', icon: 'cart' },
     { title: 'Checkout', url: '/Checkout', icon: 'card' },
     { title: 'My Profile', url: '/Profile', icon: 'person' },

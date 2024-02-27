@@ -51,6 +51,9 @@ export class SingleCardComponent implements OnChanges {
 
   }
 
+  addToWishlist() {
+    this.cartService.updateWishlistItems(this.item);
+  }
   gotoProduct(product: string) {
     this.router.navigate(['/Product'], { queryParams: { product } });
   }
