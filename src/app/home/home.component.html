@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button  routerLink="/Cart" routerDirection="root">
         <ion-icon size="large" aria-hidden="true" slot="start" name='cart-outline'></ion-icon>
         <ion-badge slot="end" class="badge-top">10</ion-badge>
       </ion-button>
@@ -29,7 +29,7 @@
     <ion-col>
       <ion-card color="danger">
         <ion-card-header>
-          <ion-card-title>40% OFF</ion-card-title>
+          <ion-card-title>40&#37; OFF</ion-card-title>
           <ion-card-title>UP TO &#8377;800</ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -43,7 +43,7 @@
     <ion-col>
       <ion-card color="darkblue">
         <ion-card-header>
-          <ion-card-title>10% OFF</ion-card-title>
+          <ion-card-title>10&#37; OFF</ion-card-title>
           <ion-card-title>UP TO &#8377;500</ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -64,7 +64,7 @@
       <ion-col size="6" *ngFor="let item of itemsList; let i=index">
         <ion-card style="margin: 0px;" *ngIf="i<=3">
           <ion-item lines="none">
-            <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}} OFF </ion-badge>
+            <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}}&#37; OFF </ion-badge>
             <ion-img [src]="item.avatar"  alt=""></ion-img>
           </ion-item>
 

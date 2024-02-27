@@ -35,7 +35,7 @@ export class SingleCardComponent {
 
   }
 
-  gotoItem(type: string) {
-    this.router.navigate(['/Product'], { queryParams: { type } });
+  gotoProduct(product: string) {
+    this.router.navigate(['/Product'], { queryParams: { product } });
   }
 }

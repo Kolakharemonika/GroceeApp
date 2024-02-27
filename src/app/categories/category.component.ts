@@ -21,7 +21,7 @@ export class CategoryComponent {
    }
 
 
-  StartWithCat(type: string) {
-    this.router.navigate(['/Shoplist'], { queryParams: { type } });
+  StartWithCat(category: string) {
+    this.router.navigate(['/Shoplist'], { queryParams: { category } });
   }
 }

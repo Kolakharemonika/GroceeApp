@@ -16,8 +16,8 @@ export class SingleProductComponent implements OnInit {
     private itemsService: ItemsService) {
     this.route.queryParams.subscribe(params => {
 
-      if (params['type']) {
-        this.selectedType = params['type'];
+      if (params['product']) {
+        this.selectedType = params['product'];
       }
     });
    }
