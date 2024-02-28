@@ -15,21 +15,21 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <form class="ion-padding-horizontal">
+        <form class="ion-padding-horizontal" [formGroup]="signupFormGroup">
           <ion-list class="card input-list">
             <ion-item>
               <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
-              <ion-input type="number" required placeholder="Enter Phone Number"></ion-input>
+              <ion-input formControlName="mobileNo" maxlength="10" type="text" pattern="[0-9]*" required placeholder="Enter Phone Number"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="stacked">Use your referral code here</ion-label>
-              <ion-input type="text" placeholder="Enter Code"></ion-input>
+              <ion-input formControlName="referralCode" type="text" placeholder="Enter Code"></ion-input>
             </ion-item>
           </ion-list>
         </form>
       </ion-col>
     </ion-row>
-    <ion-button class="ion-padding" (click)="goto()" size="large" expand="block">NEXT</ion-button>
+    <ion-button class="ion-padding" (click)="registerMe()" size="large" expand="block">NEXT</ion-button>
   </ion-list>
 
 </ion-content>

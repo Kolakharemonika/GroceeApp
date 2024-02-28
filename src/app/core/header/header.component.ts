@@ -10,7 +10,7 @@ export class HeaderComponent {
     { title: 'Homepage', url: '/Home', icon: 'home' },
     { title: 'Categories', url: '/Category', icon: 'list' },
     { title: 'Shop List', url: '/Shoplist', icon: 'grid' },
-    // { title: 'Single Product', url: '/Product', icon: 'pricetag' },
+    // { title: 'Product Info', url: '/Product', icon: 'pricetag' },
     { title: 'Wish List', url: '/Wishlist', icon: 'bookmarks' },
     { title: 'Shopping Cart', url: '/Cart', icon: 'cart' },
     { title: 'Checkout', url: '/Checkout', icon: 'card' },

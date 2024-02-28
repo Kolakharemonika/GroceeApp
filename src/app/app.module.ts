@@ -16,7 +16,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './categories/category.component';
 import { ShopListComponent } from './shop-list/shoplist.component';
-import { SingleProductComponent } from './single-product/single-product.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
 import { AddressComponent } from './address/address.component';
@@ -32,21 +32,23 @@ import { PrivacyComponent } from './about-us/privacy.component';
 import { TermsConditionComponent } from './about-us/terms.component';
 import { SingleCardComponent } from './shared/components/single-card/single-card.component';
 import { WishListComponent } from './wish-list/wishlist.component';
+import { CustomerService } from './services/customer-service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
                  OrdersListComponent, AddressComponent, ContactComponent, ProfileComponent,
                  CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
-                 ShopListComponent, SingleProductComponent, CartComponent, DeliveryAddressComponent,
+                 ShopListComponent, ProductInfoComponent, CartComponent, DeliveryAddressComponent,
                  AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent,
-                 WishListComponent ],
-  imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+                 WishListComponent],
+  imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+            ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
   }, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CartService, ItemsService],
+    CartService, ItemsService, CustomerService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

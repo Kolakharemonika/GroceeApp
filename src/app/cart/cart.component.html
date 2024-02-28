@@ -12,7 +12,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light" class="ion-padding">
-  <ion-list lines="none" class="card">
+  <h1 *ngIf="itemsList.length===0"> No product added </h1>
+  <ion-list lines="none" class="card" *ngIf="itemsList.length > 0">
     <ion-item>
       <ion-label> M.R.P </ion-label>
       <ion-label class="ion-text-end">&#8377;233,00 </ion-label>
@@ -37,7 +38,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-list class="card ion-margin-top" lines="full">
+  <ion-list class="card ion-margin-top" lines="full" *ngIf="itemsList.length > 0">
       <app-single-card [item]="item" *ngFor="let item of itemsList"></app-single-card>
   </ion-list>
 </ion-content>

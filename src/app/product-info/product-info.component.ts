@@ -5,11 +5,11 @@ import { CartService } from '../services/cart-service';
 
 
 @Component({
-  selector: 'app-single-product',
-  templateUrl: 'single-product.component.html'
+  selector: 'app-product-info',
+  templateUrl: 'product-info.component.html'
 })
 
-export class SingleProductComponent implements OnInit {
+export class ProductInfoComponent implements OnInit {
   selectedType: any;
   product: any;
   selectedQty: number =0;

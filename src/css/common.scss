@@ -97,7 +97,7 @@ ion-button .badge-top {
   background: var(--ion-color-white);
 
   ion-row {
-    padding: 10px 0px;
+    padding: 10px 20px;
     &:not(:last-child) {
       border-bottom: 1px solid #ccc;
     }
@@ -148,4 +148,7 @@ ion-card-content {
 .disabled {
   pointer-events: none;
   opacity: 0.8;
+}
+.d-flex {
+  display: flex;
 }

@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './categories/category.component';
 import { ShopListComponent } from './shop-list/shoplist.component';
-import { SingleProductComponent } from './single-product/single-product.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Category', component: CategoryComponent },
   { path: 'Shoplist', component: ShopListComponent },
-  { path: 'Product', component: SingleProductComponent },
+  { path: 'Product', component: ProductInfoComponent },
   { path: 'Cart', component: CartComponent },
   {
     path: 'Checkout', component: CheckoutComponent,
