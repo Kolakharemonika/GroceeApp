@@ -7,6 +7,7 @@ import { ApiService } from '../shared/services/api-service';
 export class CartService {
   cartMenuItems: Record<number, MenuItem> = {};
   wishListItems: Record<number, MenuItem> = {};
+  cart: any = {};
   order: any;
   isCartItemsEdited: boolean = false;
 
@@ -33,6 +34,7 @@ export class CartService {
       if (this.cartMenuItems[id]?.quantity <= 0) {
         delete this.cartMenuItems[id];
       }
+      this.apiService.sendAction({ action: 'cartlist_updated' });
     }
     this.saveCart();
     this.isCartItemsEdited = true;
@@ -50,14 +52,16 @@ export class CartService {
   updateWishlistItems(product: any) {
 
     let filteredProduct = this.itemService?.itemsList.length>  0 && this.itemService?.itemsList.filter((item:any)=> item.id === product.id)[0]
-      if (!this.wishListItems[product.id]) {
+
+    if (!this.wishListItems[product.id]) {
         filteredProduct.isWishlist = true;
+        this.cartMenuItems[product.id] && (this.cartMenuItems[product.id].isWishlist = true);
         this.wishListItems[product.id] = Object.assign({}, product);
-        console.log(this.wishListItems[product.id]);
 
       } else {
         filteredProduct.isWishlist = false;
-       delete this.wishListItems[product.id];
+        this.cartMenuItems[product.id] && (this.cartMenuItems[product.id].isWishlist = false);
+        delete this.wishListItems[product.id];
      }
     // this.sendAction
     this.apiService.sendAction({ action: 'wishlist_updated' });
@@ -68,11 +72,26 @@ export class CartService {
     return Object.values(this.wishListItems);
   }
 
+  getCartOrder() {
+    this.cart.price = this.getTotalQty();
+    this.cart.discountedPrice = this.getTotalDisPrice();
+    this.cart.discount = this.getTotalQty() - this.getTotalDisPrice();
+    this.cart.deliveryCharge = this.getTotalQty() >= 500 ? 0 : this.getTotalOrderItemsCount() * 40;
+    this.cart.subTotal = this.cart.discountedPrice + this.cart.deliveryCharge ;
+   }
+   
   getCartItems() {
     return Object.values(this.cartMenuItems);
   }
 
   getTotalQty() {
+    let total = Object.values(this.cartMenuItems).reduce((acc: number, item: any) => {
+      return acc += Number(item.price);
+    }, 0);
+
+    return total;
+  }
+  getTotalDisPrice() {
     let total = Object.values(this.cartMenuItems).reduce((acc: number, item: any) => {
       return acc += Number(item.discountedPrice);
     }, 0);

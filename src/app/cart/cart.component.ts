@@ -24,6 +24,7 @@ export class CartComponent {
     console.log();
     if (this.cartService.getTotalOrderItemsCount() > 0) {
       this.itemsList = this.cartService.getCartItems();
+      this.cartService.getCartOrder();
     } else {
 
     }

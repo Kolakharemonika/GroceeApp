@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CustomerService } from '../services/customer-service';
 
 
 @Component({
@@ -17,40 +19,40 @@ import { Router } from '@angular/router';
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
-  <form class="ion-padding" >
+  <form class="ion-padding" [formGroup]="addressFormGroup" >
     <ion-list class="card">
       <ion-item>
-        <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input type="text" placeholder="Enter Name"></ion-input>
+        <ion-label position="stacked">Name <ion-text color="danger">&nbsp;*</ion-text></ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Enter Name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Flat/House/Office No. <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input type="text" placeholder="Enter Flat/House/Office..."></ion-input>
+        <ion-label position="stacked">Flat/House/Office No. <ion-text color="danger">&nbsp;*</ion-text></ion-label>
+        <ion-input formControlName="addressNo" type="text" placeholder="Enter Flat/House/Office..."></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Street/Society/Office Name <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input placeholder="Enter Street/Society/Office..."></ion-input>
+        <ion-label position="stacked">Street/Society/Office Name <ion-text color="danger">&nbsp;*</ion-text></ion-label>
+        <ion-input formControlName="addressName" placeholder="Enter Street/Society/Office..."></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Locality <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input placeholder="Enter Locality"></ion-input>
+        <ion-label position="stacked">Locality <ion-text color="danger">&nbsp;*</ion-text></ion-label>
+        <ion-input formControlName="addressLocality" placeholder="Enter Locality"></ion-input>
       </ion-item>
 
       <ion-list>
-        <ion-radio-group>
-        <ion-list-header class="mk"> Nickname of your address </ion-list-header>
+        <ion-radio-group formControlName="addressOf">
+        <ion-list-header class="address-header"> Select Address Type </ion-list-header>
           <ion-item>
-            <ion-radio value="home">Home</ion-radio><br />
+            <ion-radio value="Home">Home</ion-radio><br />
           </ion-item>
           <ion-item>
-            <ion-radio value="office">Office</ion-radio><br />
+            <ion-radio value="Office">Office</ion-radio><br />
           </ion-item>
           <ion-item>
-            <ion-radio value="others">Others</ion-radio><br />
+            <ion-radio value="Others">Others</ion-radio><br />
           </ion-item>
         </ion-radio-group>
       </ion-list>
-      <ion-button class="ion-padding" size="small" expand="block">SAVE</ion-button>
+      <ion-button class="ion-padding" size="small" expand="block" (click)="saveAddress()">SAVE</ion-button>
     </ion-list>
   </form>
 </ion-content>
@@ -60,9 +62,67 @@ import { Router } from '@angular/router';
 })
 
 export class DeliveryAddressComponent {
+  addressFormGroup!: FormGroup;
+  addressId: number =  0;
 
-  constructor(private router: Router) { }
+  constructor(public fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private customerService: CustomerService) {
+
+                this.createAddressForm();
+
+    this.route.queryParams.subscribe(params => {
+
+      if (params['addressId']) {
+        this.addressId = params['addressId'];
+        this.addressId && this.getAddressData(this.addressId);
+      }
+    });
+  }
+
+  createAddressForm() {
+    this.addressFormGroup = this.fb.group({
+      name: ['', [Validators.required]],
+      addressNo: ['', [Validators.required]], //, CustomValidators.mobileValidator
+      addressName: ['', [Validators.required]],
+      addressLocality: ['', [Validators.required]],
+      addressOf: ['home']
+    });
+  }
+
   goto(){
     this.router.navigate(['/Checkout']);
+  }
+
+  getAddressData(addressId:number){
+    this.customerService.getAddress().then((addressList: any) => {
+      let selectedAddress= addressList.filter((ad:any)=>ad.id == addressId)[0];
+      console.log(addressList);
+      console.log(selectedAddress);
+      this.addressFormGroup.patchValue(selectedAddress);
+    }, (error: any) => {
+    });
+  }
+  saveAddress() {
+    if (this.addressFormGroup.invalid) {
+      this.addressFormGroup.markAllAsTouched();
+      return;
+    }
+    let data = this.addressFormGroup.getRawValue();
+    console.log(data);
+    if (this.addressId) { //update -edit address
+      this.customerService.saveAddress(data).then((resp: any) => {
+        // this.router.navigate(['Checkout', 'Payment'])
+        // this.sendOrder();
+      }, (error: any) => {
+      });
+    } else { //new address
+      this.customerService.saveAddress(data).then((resp: any) => {
+        // this.router.navigate(['Checkout', 'Payment'])
+        // this.sendOrder();
+      }, (error: any) => {
+      });
+    }
   }
 }

@@ -13,62 +13,24 @@
 </ion-header>
 <ion-content color="light" class="ion-padding">
   <ion-grid>
-    <ion-card>
+    <ion-card *ngFor="let cust of addressList">
       <ion-item>
         <ion-thumbnail>
-          <ion-icon size="large" name="home-outline"></ion-icon>
+          <ion-icon size="large" [name]="cust.addressOf === 'Home'? 'home-outline':cust.addressOf === 'Office'? 'briefcase-outline': 'navigate-outline'"></ion-icon>
         </ion-thumbnail>
         <ion-card-content>
           <ion-card-header>
-            <ion-card-title>Home</ion-card-title>
-            <ion-card-subtitle> Osahan House, Jawaddi Kalan, Ludhiana, Punjab 141002, India</ion-card-subtitle>
+            <ion-card-title>{{cust.name}} <ion-badge>{{cust.addressOf}}</ion-badge></ion-card-title>
+            <ion-card-subtitle>{{cust.addressNo}}, {{cust.addressName}}, {{cust.addressLocality}} </ion-card-subtitle>
           </ion-card-header>
-          <ion-button fill="clear" routerLink="/DeliveryAddress">
+          <ion-button fill="clear" (click)="editAddress(cust.id)">
             <ion-icon size="small" name="create-outline"></ion-icon>
             <ion-label>EDIT</ion-label> </ion-button>
-          <ion-button fill="clear">
+          <ion-button fill="clear" (click)="deleteAddress(cust.id)">
             <ion-icon size="small" name="trash-outline"></ion-icon>
             <ion-label>DELETE</ion-label> </ion-button>
         </ion-card-content>
       </ion-item>
     </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-thumbnail>
-          <ion-icon size="large" name="briefcase-outline"></ion-icon>
-        </ion-thumbnail>
-        <ion-card-content>
-          <ion-card-header>
-            <ion-card-title>Work</ion-card-title>
-            <ion-card-subtitle>NCC, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</ion-card-subtitle>
-          </ion-card-header>
-          <ion-button fill="clear" routerLink="/DeliveryAddress">
-            <ion-icon slot="start" size="small" name="create-outline"></ion-icon>
-            EDIT </ion-button>
-          <ion-button fill="clear">
-            <ion-icon slot="start" size="small" name="trash-outline"></ion-icon>
-            DELETE </ion-button>
-        </ion-card-content>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-item>
-        <ion-thumbnail>
-          <ion-icon size="large" name="navigate-outline"></ion-icon>
-        </ion-thumbnail>
-        <ion-card-content>
-          <ion-card-header>
-            <ion-card-title>Other</ion-card-title>
-            <ion-card-subtitle>GTTT, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</ion-card-subtitle>
-          </ion-card-header>
-          <ion-button fill="clear" routerLink="/DeliveryAddress">
-            <ion-icon size="small" name="create-outline"></ion-icon>
-            <ion-label>EDIT</ion-label> </ion-button>
-          <ion-button fill="clear">
-            <ion-icon size="small" name="trash-outline"></ion-icon>
-            <ion-label>DELETE</ion-label> </ion-button>
-        </ion-card-content>
-      </ion-item>
-    </ion-card>
-  </ion-grid>
+   </ion-grid>
 </ion-content>

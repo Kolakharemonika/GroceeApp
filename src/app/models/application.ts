@@ -90,6 +90,7 @@ export class MenuItem {
 
     quantity: number;
     measures: string;
+    isWishlist:boolean;
 
     rating: number;
 
@@ -114,6 +115,7 @@ export class MenuItem {
             this.status = jsonObj.status ? jsonObj.status : null;
 
             this.quantity = 0;
+           this.isWishlist = jsonObj.isWishlist ? jsonObj.isWishlist : false;
 
         } else {
             this.id = null;
@@ -131,6 +133,7 @@ export class MenuItem {
             this.status = null;
 
             this.quantity = 0;
+            this.isWishlist = false;
         }
 
     }

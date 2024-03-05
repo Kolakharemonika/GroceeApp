@@ -10,6 +10,8 @@ import { CustomerService } from 'src/app/services/customer-service';
 export class LoginComponent {
 
   signupFormGroup!: FormGroup;
+  isAddressAvail: boolean = false;
+  addressList: any;
 
   constructor(public fb: FormBuilder,
     public router: Router,
@@ -23,13 +25,21 @@ export class LoginComponent {
   ) {
 
     this.createSignupForm();
+
+    this.customerService.getAddress().then((resp: any) => {
+    if (resp && resp.length > 0){
+       this.addressList = resp;
+       this.isAddressAvail = true;
+    }
+    }, (error: any) => {
+    });
   }
-  // get form() { return this.loginFormGroup.controls; }
 
   createSignupForm() {
     this.signupFormGroup = this.fb.group({
-      mobileNo: ['', [Validators.required]], //, CustomValidators.mobileValidator
+      mobileNo: ['', [Validators.required]],
       referralCode: [''],
+      deliveryAddress:['']
     });
   }
 
@@ -41,23 +51,30 @@ export class LoginComponent {
     let data = this.signupFormGroup.getRawValue();
     console.log(data);
 
-    this.customerService.startJourney(data).then((resp: any) => {
-      this.router.navigate(['Checkout', 'DeliveryAddress'])
+
+    // this.customerService.startJourney(data).then((resp: any) => {
+    //   this.router.navigate(['Checkout', 'DeliveryAddress'])
+    if (this.isAddressAvail) {
+      this.sendOrder();
+    } else {
+      this.router.navigate(['Checkout','DeliveryAddress'])
+    }
       // this.sendOrder();
-    }, (error:any) => {
-    });
+    // }, (error:any) => {
+    // });
   }
 
   // ionViewWillLeave() {
   //   this.customerService.leftSectionSrc = '';
   //   this.customerService.leftSectionTitle = '';
   // }
-  // sendOrder() {
-  //   this.customerService.addToOrder().then((resp: any) => {
-  //     this.router.navigate(["order", "view"]);
-  //   }, error => {
-  //     this.toast.show(error);
-  //     this.router.navigate(["order", "cart"]);
-  //   });
-  // }
+
+  sendOrder() {
+    // this.customerService.addToOrder().then((resp: any) => {
+      this.router.navigate(['Checkout', 'Payment'])
+    // }, error => {
+    //   // this.toast.show(error);
+    //   this.router.navigate(["Cart"]);
+    // });
+  }
 }

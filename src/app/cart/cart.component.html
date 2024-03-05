@@ -16,11 +16,11 @@
   <ion-list lines="none" class="card" *ngIf="itemsList.length > 0">
     <ion-item>
       <ion-label> M.R.P </ion-label>
-      <ion-label class="ion-text-end">&#8377;233,00 </ion-label>
+      <ion-label class="ion-text-end">&#8377;{{cartService.getTotalQty()}} </ion-label>
     </ion-item>
     <ion-item>
       <ion-label> Products Discount </ion-label>
-      <ion-label color="success" class="ion-text-end"> -40 </ion-label>
+      <ion-label color="success" class="ion-text-end"> &#8722;{{cartService.cart.discount }} </ion-label>
     </ion-item>
     <ion-item>
       <ion-label color="secondary">
@@ -30,11 +30,11 @@
     </ion-item>
     <ion-item lines="full">
       <ion-label>Delivery Charges <ion-icon slot="end" color="danger" size="small" name="help-circle-outline"></ion-icon></ion-label>
-      <ion-label color="danger" class="ion-text-end"> +&#8377;90,00</ion-label>
+      <ion-label color="danger" class="ion-text-end"> +&#8377;{{cartService.cart.deliveryCharge}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label> <strong>Sub Totle</strong> </ion-label>
-      <ion-label class="ion-text-end"> <strong>+&#8377;433,00</strong> </ion-label>
+      <ion-label> <strong>Sub Total</strong> </ion-label>
+      <ion-label class="ion-text-end"> <strong>&#8377;{{cartService.cart.subTotal}}</strong> </ion-label>
     </ion-item>
   </ion-list>
 
@@ -44,15 +44,15 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary" routerLink="/Checkout" routerDirection="root" [class.disabled]="cartService.getTotalQty() === 0">
+  <ion-toolbar color="primary" routerLink="/Checkout" routerDirection="root" [class.disabled]="itemsList.length === 0">
     <ion-buttons slot="start" color="light" >
       <ion-button size="large">
         <ion-label class="space-between"><ion-icon slot="start" size="large" name="cart-outline"></ion-icon> <span>Proceed to Checkout</span> </ion-label>
       </ion-button>
     </ion-buttons>
-    <ion-buttons slot="end" color="light">
+    <ion-buttons slot="end" color="light" *ngIf="cartService.cart?.subTotal">
       <ion-button size="large">
-        <ion-label class="space-between"><span> <strong>&#8377;{{cartService.getTotalQty()}} </strong></span> <ion-icon slot="end" size="medium" name="arrow-forward-outline"></ion-icon> </ion-label>
+        <ion-label class="space-between"><span> <strong>&#8377;{{cartService.cart?.subTotal}} </strong></span> <ion-icon slot="end" size="medium" name="arrow-forward-outline"></ion-icon> </ion-label>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

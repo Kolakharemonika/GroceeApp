@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [PaymentComponent, CompletedComponent, LoginComponent],
   imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule],
+  exports: [ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

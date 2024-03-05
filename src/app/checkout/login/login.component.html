@@ -16,7 +16,7 @@
     <ion-row>
       <ion-col>
         <form class="ion-padding-horizontal" [formGroup]="signupFormGroup">
-          <ion-list class="card input-list">
+          <ion-list class="card input-list ion-padding-bottom">
             <ion-item>
               <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
               <ion-input formControlName="mobileNo" maxlength="10" type="text" pattern="[0-9]*" required placeholder="Enter Phone Number"></ion-input>
@@ -25,7 +25,15 @@
               <ion-label position="stacked">Use your referral code here</ion-label>
               <ion-input formControlName="referralCode" type="text" placeholder="Enter Code"></ion-input>
             </ion-item>
-          </ion-list>
+        </ion-list>
+        <ion-list class="card ion-padding-top" *ngIf="isAddressAvail">
+          <ion-radio-group formControlName="deliveryAddress">
+            <ion-list-header class="address-header"> Select Delivery address <ion-text color="danger">&nbsp; *</ion-text></ion-list-header>
+            <ion-item *ngFor="let address of addressList">
+              <ion-radio value="{{address.id}}"> {{address.name}} <ion-badge>{{address.addressOf}}</ion-badge> </ion-radio><br />
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
         </form>
       </ion-col>
     </ion-row>
