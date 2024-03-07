@@ -4,7 +4,7 @@
       <ion-menu-button size="large"></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button  routerLink="/Cart" routerDirection="root">
+      <ion-button  routerLink="/Cart" routerDirection="root" [disabled]="cartService.getTotalOrderItemsCount()===0">
         <ion-icon aria-hidden="true" slot="start" size="large" name="cart-outline"></ion-icon>
         <ion-badge class="badge-top" *ngIf="cartService.getTotalOrderItemsCount()">{{ cartService.getTotalOrderItemsCount()}}</ion-badge>
       </ion-button>

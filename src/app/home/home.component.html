@@ -62,26 +62,7 @@
     <h6>View All</h6>
     <ion-row>
       <ion-col size="6" *ngFor="let item of itemsList;">
-        <ion-card style="margin: 0px;">
-          <ion-item lines="none">
-            <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}}&#37; OFF </ion-badge>
-            <ion-img [src]="item.avatar"  alt=""></ion-img>
-          </ion-item>
-
-          <ion-card-content>
-            <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
-            <ion-label class="discount-price">&#8377;{{item.discountedPrice}}
-              <span class="product-price">&#8377;{{item.price}}</span></ion-label>
-          </ion-card-content>
-          <ion-card-content class="space-between">
-            <ion-note> {{item.measures}} </ion-note>
-            <div class="space-between">
-              <ion-icon size="large" name="remove-circle-sharp" color="medium"></ion-icon>
-              <ion-label class="ion-padding-horizontal">{{item.quantity}}</ion-label>
-              <ion-icon size="large" name="add-circle-sharp" color="primary"></ion-icon>
-            </div>
-          </ion-card-content>
-        </ion-card>
+      <app-single-card [item]="item" [isVertical]="true"></app-single-card>
       </ion-col>
     </ion-row>
     <ion-row>

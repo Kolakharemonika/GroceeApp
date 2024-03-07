@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from 'src/app/models/application';
+import { MenuItem } from 'src/app/shared/models/application';
 import { ItemsService } from './Items-service';
 import { ApiService } from '../shared/services/api-service';
+import { Cache } from '../shared/services/cache';
 
 @Injectable()
 export class CartService {
@@ -12,8 +13,21 @@ export class CartService {
   isCartItemsEdited: boolean = false;
 
   constructor(private itemService: ItemsService,
-    private apiService: ApiService) {
-    console.log(this.cartMenuItems,'cartMenuItems');
+              private apiService: ApiService,
+              private cache: Cache) {
+
+                this.cache.getSession('cart').then((cart: any) => {
+                  this.cartMenuItems = cart ? cart : {};
+                  this.apiService.sendAction({ action: 'cartlist_updated' });
+                }, (error: any) => {
+                });
+                console.log(this.cartMenuItems,'cartMenuItems');
+
+    // this.cache.getSession('order').then((order: any) => {
+    //   this.order = order ? order : {};
+    //   this.cache.orderId = this.order.id;
+    // }, (error:any) => {
+    // });
 
   }
 
@@ -34,10 +48,10 @@ export class CartService {
       if (this.cartMenuItems[id]?.quantity <= 0) {
         delete this.cartMenuItems[id];
       }
-      this.apiService.sendAction({ action: 'cartlist_updated' });
     }
     this.saveCart();
     this.isCartItemsEdited = true;
+    // this.apiService.sendAction({ action: 'cartlist_updated' });
     console.log(this.cartMenuItems, 'cartMenuItems');
   }
 
@@ -79,7 +93,7 @@ export class CartService {
     this.cart.deliveryCharge = this.getTotalQty() >= 500 ? 0 : this.getTotalOrderItemsCount() * 40;
     this.cart.subTotal = this.cart.discountedPrice + this.cart.deliveryCharge ;
    }
-   
+
   getCartItems() {
     return Object.values(this.cartMenuItems);
   }
@@ -104,12 +118,12 @@ export class CartService {
 
   emptyCart() {
     this.cartMenuItems = {};
-    // this.cache.clearSession('cart');
-    // this.apiService.sendAction({ action: 'cart_updated' })
+    this.cache.clearSession('cart');
+    this.apiService.sendAction({ action: 'cart_updated' })
   }
   saveCart() {
-    // this.cache.setSession('cart', this.cartMenuItems);
-    // this.apiService.sendAction({ action: 'cart_updated' });
+    this.cache.setSession('cart', this.cartMenuItems);
+    this.apiService.sendAction({ action: 'cartlist_updated' });
   }
   saveOrder() {
     // this.cache.setSession('order', this.order);

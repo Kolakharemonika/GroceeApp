@@ -1,12 +1,12 @@
 <ion-menu contentId="main-content">
   <ion-content>
     <ion-header class="ion-no-border ion-padding">
-      <div class="ion-padding">
+      <div class="ion-padding" *ngIf="this.cache.user">
         <ion-avatar aria-hidden="true" slot="end">
-          <img alt="profile" src="assets/images/profile.jpg" />
+          <ion-img alt="profile" [src]="this.cache.user.avatar" *ngIf="this.cache.user.avatar"></ion-img>
         </ion-avatar>
-        <ion-list-header>Monika Kolakhare</ion-list-header>
-        <ion-note>kolakharemonika&#64;gmail.com</ion-note>
+        <ion-list-header *ngIf="this.cache.user?.name">{{ this.cache.user.name}}</ion-list-header>
+        <ion-note *ngIf="this.cache.user?.email"> {{ this.cache.user.email}}</ion-note>
       </div>
       <ion-list class="menu-list">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">

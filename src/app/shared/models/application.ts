@@ -1,4 +1,5 @@
 
+'use strict';
 export class MenuTreeDetails {
     success: boolean;
     categories: any[];
@@ -78,12 +79,13 @@ export class Category {
 
 export class MenuItem {
     id: any;
-    name: string;
+    title: string;
     avatar: string;
     price: number;
     totalCost: number;
     discountedPrice: number;
     discountPercentage: string;
+    discount:string;
 
     serveQuantity: number;
     unit: number;
@@ -100,10 +102,11 @@ export class MenuItem {
     constructor(jsonObj:any){
         if(jsonObj){
             this.id = jsonObj.id ? jsonObj.id : '';
-            this.name = jsonObj.name ? jsonObj.name : '';
+            this.title = jsonObj.title ? jsonObj.title : '';
             this.avatar = jsonObj.avatar ? jsonObj.avatar : '';
             this.price = jsonObj.price ? +jsonObj.price : 0;
             this.totalCost = jsonObj.totalCost ? +jsonObj.totalCost : 0;
+            this.discount = jsonObj.discount ? jsonObj.discount : '';
             this.discountedPrice = jsonObj.discountedPrice ? +jsonObj.discountedPrice : 0;
             this.discountPercentage = jsonObj.discountPercentage ? jsonObj.discountPercentage : '';
 
@@ -119,10 +122,11 @@ export class MenuItem {
 
         } else {
             this.id = null;
-            this.name = '';
+            this.title = '';
             this.avatar = '';
             this.price = 0;
             this.totalCost = 0;
+            this.discount='';
             this.discountedPrice = 0;
             this.discountPercentage = '';
             this.measures = '';
@@ -137,4 +141,21 @@ export class MenuItem {
         }
 
     }
+}
+export class User {
+  name: any;
+  avatar: any;
+  email: any;
+
+  constructor(jsonObj: any) {
+    if (jsonObj) {
+      this.name = jsonObj.name ? jsonObj.name : null;
+      this.avatar = jsonObj.avatar ? jsonObj.avatar : null;
+      this.email = jsonObj.email ? jsonObj.email : null;
+    } else {
+      this.name = null;
+      this.avatar = null;
+      this.email = null;
+    }
+  }
 }

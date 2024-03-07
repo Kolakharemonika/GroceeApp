@@ -61,11 +61,17 @@ h6 {
 .badge-top {
   font-weight: 600;
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 13px;
+  top: 13px;
   z-index: 111;
 }
 
+.badge-top-left {
+  position: absolute;
+  left: 11px;
+  top: 0px;
+  z-index: 111;
+}
 ion-button .badge-top {
   right: -3px;
   top: -3px;

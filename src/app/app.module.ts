@@ -33,6 +33,7 @@ import { TermsConditionComponent } from './about-us/terms.component';
 import { SingleCardComponent } from './shared/components/single-card/single-card.component';
 import { WishListComponent } from './wish-list/wishlist.component';
 import { CustomerService } from './services/customer-service';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
@@ -42,7 +43,7 @@ import { CustomerService } from './services/customer-service';
                  AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent,
                  WishListComponent],
   imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
-            ],
+            NgxWebstorageModule.forRoot(),],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

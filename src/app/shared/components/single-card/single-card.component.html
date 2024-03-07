@@ -1,4 +1,4 @@
-<ion-item>
+ <ion-item *ngIf="!isVertical">
   <ion-thumbnail slot="start">
     <ion-img [src]="item.avatar" alt="" > </ion-img>
     <ion-icon (click)="addToWishlist()" [name]="item.isWishlist ? 'heart-sharp' : 'heart-outline' "></ion-icon>
@@ -21,3 +21,24 @@
   </ion-card-content>
 </ion-card-header>
 </ion-item>
+<ion-card class="ion-no-margin" *ngIf="isVertical">
+  <ion-item lines="none">
+    <ion-icon class="badge-top-left" slot="start" (click)="addToWishlist()" [name]="item.isWishlist ? 'heart-sharp' : 'heart-outline' "></ion-icon>
+    <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}}&#37; OFF </ion-badge>
+    <ion-img [src]="item.avatar" alt="product image" ></ion-img>
+  </ion-item>
+
+  <ion-card-content>
+    <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
+    <ion-label class="discount-price">&#8377;{{item.discountedPrice}}
+      <span class="product-price">&#8377;{{item.price}}</span></ion-label>
+  </ion-card-content>
+  <ion-card-content class="space-between">
+    <ion-note> {{item.measures}} </ion-note>
+    <div class="space-between">
+      <ion-icon [class.disabled]="selectedQty === 0" (click)="removeItem()" size="large" name="remove-circle-sharp" color="medium"></ion-icon>
+      <ion-label class="ion-padding-horizontal">{{selectedQty}}</ion-label>
+      <ion-icon (click)="addItem()" size="large" name="add-circle-sharp" color="primary"></ion-icon>
+    </div>
+  </ion-card-content>
+</ion-card>
