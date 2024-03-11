@@ -91,7 +91,11 @@ export class CartService {
     this.cart.discountedPrice = this.getTotalDisPrice();
     this.cart.discount = this.getTotalQty() - this.getTotalDisPrice();
     this.cart.deliveryCharge = this.getTotalQty() >= 500 ? 0 : this.getTotalOrderItemsCount() * 40;
-    this.cart.subTotal = this.cart.discountedPrice + this.cart.deliveryCharge ;
+    this.cart.subTotal = this.getTotalDisPrice() + Number(this.cart.deliveryCharge);
+   }
+
+   getSubTotal() {
+     return this.getTotalDisPrice() + Number(this.cart.deliveryCharge);
    }
 
   getCartItems() {
@@ -100,14 +104,14 @@ export class CartService {
 
   getTotalQty() {
     let total = Object.values(this.cartMenuItems).reduce((acc: number, item: any) => {
-      return acc += Number(item.price);
+      return acc += Number(item.price) * (item.quantity);
     }, 0);
 
     return total;
   }
   getTotalDisPrice() {
     let total = Object.values(this.cartMenuItems).reduce((acc: number, item: any) => {
-      return acc += Number(item.discountedPrice);
+      return acc += Number(item.discountedPrice) * (item.quantity);
     }, 0);
 
     return total;

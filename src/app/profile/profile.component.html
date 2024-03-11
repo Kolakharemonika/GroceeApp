@@ -16,10 +16,10 @@
    <ion-list class="card" *ngIf="!isEditProfile">
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-          <ion-img class="img-medium" [src]="profileFormGroup.value.avatar" alt="profile"></ion-img>
+          <ion-img class="img-medium" [src]="profileFormGroup.value.avatar || cache.user.avatar" alt="profile"></ion-img>
         <ion-card-header>
-          <ion-card-title>{{ profileFormGroup.value.name}}</ion-card-title>
-          <ion-card-subtitle>{{ profileFormGroup.value.email}}</ion-card-subtitle>
+          <ion-card-title>{{ profileFormGroup.value.name || cache.user.name}}</ion-card-title>
+          <ion-card-subtitle>{{ profileFormGroup.value.email || cache.user.email}}</ion-card-subtitle>
         </ion-card-header>
       </ion-col>
     </ion-row>
@@ -42,15 +42,12 @@
     </ion-row>
   </ion-list>
   <ion-list class="card" *ngIf="isEditProfile">
-      <form class="ion-padding-horizontal" [formGroup]="profileFormGroup">
+    <app-login-details></app-login-details>
+      <!-- <form class="ion-padding-horizontal" [formGroup]="profileFormGroup">
         <ion-list class="input-list">
           <ion-item>
-            <!-- <ion-img class="img-medium"  [src]="imageURL" alt="profile"></ion-img>
-            <ion-input type="file" (change)="showPreview($event)" ></ion-input> -->
-            <ion-img class="img-medium" [src]="profileFormGroup.value.avatar" alt="profile"></ion-img>
-            <!-- <ion-label position="stacked">Profile Image <ion-text color="danger">*</ion-text></ion-label> -->
-            <!-- <ion-input formControlName="profileImg" type="text" required placeholder="Enter Name"></ion-input> -->
-            <ion-icon name="cloud-upload" (click)="uploadImage()"></ion-icon>
+             <ion-img class="img-medium" [src]="profileFormGroup.value.avatar" alt="profile"></ion-img>
+             <ion-icon name="cloud-upload" (click)="uploadImage()"></ion-icon>
             <ion-icon name="trash" (click)="deleteImage()"></ion-icon>
 
           </ion-item>
@@ -68,7 +65,7 @@
             </ion-button>
           </ion-item>
         </ion-list>
-        </form>
+        </form> -->
   </ion-list>
   <ion-list lines="full" class="ion-margin-top card" >
     <ion-item [color]="link.url === '/Profile' ? 'darkblue':'white'" *ngFor="let link of linkList" routerDirection="root" [routerLink]="[link.url]">

@@ -3,6 +3,7 @@ import { Camera, CameraDirection, CameraResultType, CameraSource } from '@capaci
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cache } from '../shared/services/cache';
+import { CameraService } from '../shared/services/camera-service';
 
 @Component({
   selector: 'app-profile',
@@ -23,36 +24,17 @@ export class ProfileComponent {
     ];
 
   constructor(public fb: FormBuilder,
-              public cache: Cache) {
-    this.createSignupForm();
-    this.getProfileInfo();
-    console.log(this.cache.user);
-
-   }
+              public cache: Cache,
+              private cameraService: CameraService) {
+                 this.createSignupForm();
+                 this.getProfileInfo();
+                 }
 
   async uploadImage() {
     console.log('Take a photo');
-    // const mk = await Camera.checkPermissions()
-    // console.log(mk, 'mk');
-    try {
-      await Camera.getPhoto({
-       resultType: CameraResultType.DataUrl,
-       source: CameraSource.Prompt,
-        // PermissionState: PermissionState.Prompt,
-       // direction: CameraDirection.Front,
-       correctOrientation: true,
-       quality: 100
-      }).then((image) => {
-      // waat? cancelling the dialog makes the same image upload twice / as many times as the dialog has been cancelled
-      //  console.log('now upload picture', image);
-      // this.uploadBase64("data:image/jpeg;base64, " + image.base64String); // new function
-        this.profileFormGroup.get('avatar')?.patchValue(image.dataUrl);
-     })
-    } catch(error) {
-    console.log("error: ", error);
-  }
-
-
+    await this.cameraService.uploadImage().then((image: any) => {
+      this.profileFormGroup.get('avatar')?.patchValue(image);
+    });
   }
 
   editProfile() {
@@ -80,11 +62,11 @@ export class ProfileComponent {
   }
 
   createSignupForm() {
-    this.profileFormGroup = this.fb.group({
-      avatar: [''],
-      name:[''],
-      email: ['']
-    });
+    // this.profileFormGroup = this.fb.group({
+    //   avatar: [''],
+    //   name:[''],
+    //   email: ['']
+    // });
   }
 
   showPreview(event:any){ //input is file then
@@ -105,16 +87,12 @@ export class ProfileComponent {
 
   getProfileInfo() {
 
-    // document.querySelector("#image").src = imageUrl;
-    if(!this.cache?.user) {
-       this.isEditProfile = true;
+    if (this.cache?.user && this.cache.user.avatar && this.cache.user.email) {
+      this.isEditProfile = false;
+      this.profileFormGroup.patchValue(this.cache.user);
     } else {
-       this.isEditProfile = false;
+      this.isEditProfile = true;
     }
-    this.profileFormGroup.patchValue(this.cache.user);
-      // }
-    // }, (error: any) => {
-    // });
   }
 
 }

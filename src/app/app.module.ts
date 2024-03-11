@@ -34,6 +34,9 @@ import { SingleCardComponent } from './shared/components/single-card/single-card
 import { WishListComponent } from './wish-list/wishlist.component';
 import { CustomerService } from './services/customer-service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { CameraService } from './shared/services/camera-service';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { LoginDetailsComponent } from './Login/login.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
@@ -41,7 +44,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
                  CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
                  ShopListComponent, ProductInfoComponent, CartComponent, DeliveryAddressComponent,
                  AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent,
-                 WishListComponent],
+                 WishListComponent, LoginDetailsComponent, CreateUserComponent],
   imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
             NgxWebstorageModule.forRoot(),],
   providers: [{
@@ -49,7 +52,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     useClass: TokenInterceptor,
     multi: true
   }, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CartService, ItemsService, CustomerService],
+    CartService, ItemsService, CustomerService, CameraService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

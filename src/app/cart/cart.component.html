@@ -44,7 +44,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary" routerLink="/Checkout" routerDirection="root" [class.disabled]="itemsList.length === 0">
+  <ion-toolbar color="primary" (click)="orderConfirm()" routerDirection="root" [class.disabled]="itemsList.length === 0">
     <ion-buttons slot="start" color="light" >
       <ion-button size="large">
         <ion-label class="space-between"><ion-icon slot="start" size="large" name="cart-outline"></ion-icon> <span>Proceed to Checkout</span> </ion-label>

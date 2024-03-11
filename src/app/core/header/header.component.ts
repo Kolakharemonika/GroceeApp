@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cache } from 'src/app/shared/services/cache';
 
 @Component({
   selector: 'app-header',
@@ -24,5 +25,5 @@ export class HeaderComponent {
 
   ];
 
-  constructor() { }
+  constructor(public cache: Cache) {}
 }

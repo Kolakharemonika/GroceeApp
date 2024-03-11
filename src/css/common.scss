@@ -158,3 +158,34 @@ ion-card-content {
 .d-flex {
   display: flex;
 }
+
+ion-action-sheet {
+  --button-background: var(--ion-color-primary) !important;
+  --button-color: var(--ion-color-white) !important;
+  --color: var(--ion-color-white) !important;
+  button {
+    border-top: 1px solid var(--ion-color-light) !important;
+    span {
+        justify-content: center !important;
+    }
+  }
+}
+
+// ion-modal {
+//   &.bottom-end {
+//     align-items: flex-end;
+//     --height: auto;
+
+
+//     .ion-page {
+//       position: relative;
+//       display: block;
+//       contain: content;
+//     }
+//   }
+// }
+ion-popover {
+  &.width-80 {
+    --width: 80%;
+  }
+}

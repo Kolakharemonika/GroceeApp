@@ -37,6 +37,14 @@ import { CustomerService } from '../services/customer-service';
         <ion-label position="stacked">Locality <ion-text color="danger">&nbsp;*</ion-text></ion-label>
         <ion-input formControlName="addressLocality" placeholder="Enter Locality"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Mobile No. <ion-text color="danger">&nbsp;*</ion-text></ion-label>
+        <ion-input formControlName="mobileNo" type="text" placeholder="Mobile No"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Alternate Mobile No.</ion-label>
+        <ion-input formControlName="altMobile" type="text" placeholder="Alternate Mobile No"></ion-input>
+      </ion-item>
 
       <ion-list>
         <ion-radio-group formControlName="addressOf">
@@ -52,6 +60,10 @@ import { CustomerService } from '../services/customer-service';
           </ion-item>
         </ion-radio-group>
       </ion-list>
+      <!-- <ion-item class="ion-padding-vertical" lines="none">
+            <ion-button [disabled]="addressFormGroup.invalid" strong="true" size="medium" (click)="saveAddress()"> Save  </ion-button>
+            <ion-button slot="end" fill="outline" size="medium" strong="true" (click)="skip()"> Skip </ion-button>
+      </ion-item> -->
       <ion-button class="ion-padding" size="small" expand="block" (click)="saveAddress()">SAVE</ion-button>
     </ion-list>
   </form>
@@ -87,15 +99,21 @@ export class DeliveryAddressComponent {
       addressNo: ['', [Validators.required]], //, CustomValidators.mobileValidator
       addressName: ['', [Validators.required]],
       addressLocality: ['', [Validators.required]],
-      addressOf: ['home']
+      addressOf: ['home'],
+      mobileNo:[''],
+      altMobile:['']
     });
   }
 
-  goto(){
+  goto() {
     this.router.navigate(['/Checkout']);
   }
 
-  getAddressData(addressId:number){
+  skip() {
+
+  }
+
+  getAddressData(addressId:number) {
     this.customerService.getAddress().then((addressList: any) => {
       let selectedAddress= addressList.filter((ad:any)=>ad.id == addressId)[0];
       console.log(addressList);

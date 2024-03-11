@@ -5,7 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-checkout',
   template: `<ion-tabs>
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" color="darkblue">
     <ion-tab-button layout="icon-top" tab="DeliveryAddress">
       <ion-icon name="person-circle-outline"></ion-icon>
       Address

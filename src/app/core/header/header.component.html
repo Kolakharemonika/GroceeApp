@@ -1,16 +1,16 @@
 <ion-menu contentId="main-content">
   <ion-content>
     <ion-header class="ion-no-border ion-padding">
-      <div class="ion-padding" *ngIf="this.cache.user">
+      <div class="ion-padding" *ngIf="cache.user && cache.isLoggedIn" routerLink="/Profile">
         <ion-avatar aria-hidden="true" slot="end">
-          <ion-img alt="profile" [src]="this.cache.user.avatar" *ngIf="this.cache.user.avatar"></ion-img>
+          <ion-img alt="profile" [src]="cache.user.avatar" *ngIf="cache.user.avatar"></ion-img>
         </ion-avatar>
-        <ion-list-header *ngIf="this.cache.user?.name">{{ this.cache.user.name}}</ion-list-header>
-        <ion-note *ngIf="this.cache.user?.email"> {{ this.cache.user.email}}</ion-note>
+        <ion-list-header *ngIf="cache.user?.name">{{ cache.user.name}}</ion-list-header>
+        <ion-note *ngIf="cache.user?.email"> {{ cache.user.email}}</ion-note>
       </div>
       <ion-list class="menu-list">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-          <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+          <ion-item *ngIf="p.isShow" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
             <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
             <ion-label>{{ p.title }}</ion-label>
           </ion-item>

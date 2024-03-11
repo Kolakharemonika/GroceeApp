@@ -1,0 +1,65 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button size="large" routerLink="/Home">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Profile Info </ion-title>
+  </ion-toolbar>
+</ion-header>
+<div>
+  <form class="ion-padding" [formGroup]="profileFormGroup">
+    <ion-list class="card input-list ion-padding-bottom">
+      <ion-item lines="none">
+        <ion-img class="img-medium" [src]="profileFormGroup.value.avatar" alt="profile" (click)="uploadImage()"></ion-img>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Full Name <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="name" type="text" required placeholder="Enter Full Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Email Address </ion-label>
+        <ion-input formControlName="email" type="text" placeholder="Enter Email Address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Phone Number <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="mobileNo" maxlength="10" type="text" pattern="[0-9]*" required placeholder="Enter Phone Number"></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime id="datetime" presentation="date"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </ion-item> -->
+      <ion-item>
+        <ion-label position="stacked">Date of Birth</ion-label>
+        <ion-input type="date" formControlName="date" placeholder="Enter Date of Birth"></ion-input>
+      </ion-item>
+      <!-- <ion-item id="open-date">
+            <ion-label> Dob </ion-label>
+            <ion-note slot="end">{{profileFormGroup.value.dateExample | date:'dd/MM/YYYY' }}</ion-note>
+            <ion-popover trigger="open-date" cssClass="width-80">
+              <ng-template>
+                <ion-datetime formControlName="dateExample" presentation="date" size="cover"></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item> -->
+      <!-- <ion-item>
+            <ion-label position="stacked">Username <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input formControlName="username" type="text" required placeholder="Enter Username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input formControlName="password" minlength="8" type="text" required placeholder="Enter Password"></ion-input>
+          </ion-item> -->
+      <ion-item>
+        <ion-button [disabled]="profileFormGroup.invalid" strong="true" size="medium" (click)="saveProfileInfo()"> Save </ion-button>
+        <ion-button slot="end" fill="outline" size="medium" strong="true" (click)="skip()"> Skip </ion-button>
+      </ion-item>
+    </ion-list>
+  </form>
+</div>

@@ -22,19 +22,23 @@ import { PrivacyComponent } from './about-us/privacy.component';
 import { TermsConditionComponent } from './about-us/terms.component';
 import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 import { WishListComponent } from './wish-list/wishlist.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { LoginDetailsComponent } from './Login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Home', component: HomeComponent },
+  { path: 'log-details', component: LoginDetailsComponent },
   { path: 'Category', component: CategoryComponent },
   { path: 'Shoplist', component: ShopListComponent },
   { path: 'Product', component: ProductInfoComponent },
   { path: 'Cart', component: CartComponent },
+  { path: 'Create-user', component: CreateUserComponent },
   {
     path: 'Checkout', component: CheckoutComponent,
     children: [
       { path: '', redirectTo: 'Checkout', pathMatch: 'full' },
-      { path: '', component: LoginComponent },
+      { path: '', component: DeliveryAddressComponent }, // LoginComponent
       { path: 'DeliveryAddress', component: DeliveryAddressComponent },
       { path: 'Completed', component: CompletedComponent },
       { path: 'Payment', component: PaymentComponent },

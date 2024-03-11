@@ -1,0 +1,36 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-back-button defaultHref="/Checkout"></ion-back-button> -->
+      <ion-button size="large" routerLink="/Home">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Login </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form class="ion-padding" [formGroup]="profileFormGroup">
+    <!-- Create new user -->
+    <ion-list class="card input-list ion-padding-bottom">
+      <ion-item>
+        <ion-label position="stacked">Username <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="username" type="text" required placeholder="Enter Username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" *ngIf="loginType !== 'forgot-username'">Password <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="password" minlength="8" type="text" required placeholder="Enter Password"></ion-input>
+      </ion-item>
+      <ion-item lines="none" class="ion-align-items-baseline" *ngIf="loginType === 'exiting-user'">
+        <ion-label color="primary"> Forgot Password/Username </ion-label>
+      </ion-item>
+      <ion-item *ngIf="loginType === 'new-user'">
+        <ion-label position="stacked">Re-Enter Password <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input formControlName="password2" minlength="8" type="text" placeholder="Re-Enter Password"></ion-input>
+      </ion-item>
+      <ion-button expand="block" class="ion-padding" strong="true" size="large" (click)="saveProfileInfo()"> Save </ion-button>
+    </ion-list>
+    <!-- forget user -->
+    <!-- sign-in user -->
+  </form>
+</ion-content>

@@ -144,18 +144,24 @@ export class MenuItem {
 }
 export class User {
   name: any;
-  avatar: any;
+  mobileNo:string;
   email: any;
+  avatar: any;
+  username:string;
 
   constructor(jsonObj: any) {
     if (jsonObj) {
       this.name = jsonObj.name ? jsonObj.name : null;
-      this.avatar = jsonObj.avatar ? jsonObj.avatar : null;
       this.email = jsonObj.email ? jsonObj.email : null;
+      this.mobileNo = jsonObj.mobileNo ? jsonObj.mobileNo : '';
+      this.username = jsonObj.username ? jsonObj.username : '';
+      this.avatar = jsonObj.avatar ? jsonObj.avatar : null;
     } else {
       this.name = null;
-      this.avatar = null;
       this.email = null;
+      this.mobileNo = '';
+      this.username= '';
+      this.avatar = null;
     }
   }
 }

@@ -11,17 +11,20 @@ import { User } from '../models/application';
 })
 export class Cache {
     user!: User;
-    isLoggedIn: boolean;
+    isLoggedIn: boolean = false;
     orderId: any;
 
     constructor( private sessionStorage: SessionStorageService ) {
 
-      this.isLoggedIn = false;
+      // this.isLoggedIn = false;
 
       this.getSession('user').then((user)=>{
         console.log(user,'user');
         this.user = user ? new User(user) : new User(null);
         this.saveUser();
+      })
+      this.getSession('isLoggedIn').then((isLoggedIn:any) => {
+        this.isLoggedIn = isLoggedIn;
       })
     }
 
@@ -62,6 +65,8 @@ export class Cache {
               console.log(valObj);
 
               resolve(valObj) ;
+            } else {
+              resolve(valObj);
             }
           }
         resolve(val) ;
