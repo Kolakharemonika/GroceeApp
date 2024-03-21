@@ -13,14 +13,18 @@ export const CONFIG: any = {
     tokenRefresh: '/api/token/refresh',
     onboardCustomer: '/api/onboard-customer',
 
-    getConstants: '/api/constants',
-    getMenuTree: '/api/menu-tree',
+    getConstants: '/constants',
+    addToCategory: '/api/categories',
+    getCategory: '/api/categories',
 
     validateOrderJoinOTP: '/api/validate-order-join-otp',
 
-    getDeviceStatus: '/api/get-device-status',
-    startJourney: '/api/start-journey',
-    addToOrder: '/api/add-to-order',
+    getItemsList: '/api/products',
+    addToItemsList: '/api/products',
+
+    startJourney: '/Login',
+    saveAddress: '/DeliveryAddress',
+    getAddress: '/DeliveryAddress',
 
     getBill: '/api/get-bill',
     getQRCode: '/api/qr-code',

@@ -43,7 +43,7 @@
   </ion-list>
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar color="primary" (click)="orderConfirm()" routerDirection="root" [class.disabled]="itemsList.length === 0">
     <ion-buttons slot="start" color="light" >
       <ion-button size="large">
@@ -56,6 +56,32 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+</ion-footer> -->
+<ion-footer class="page-footer ion-padding-horizontal ion-padding-bottom">
+  <ion-row class="center-space p-0">
+    <ion-col size="6">
+      <ion-item lines="none">
+        <ion-checkbox justify="start" labelPlacement="end" #isEditOrder>
+          Edit my cart
+        </ion-checkbox>
+      </ion-item>
+      <ion-button [disabled]="!isEditOrder.checked" strong="true" color="primary" fill="outline" size="medium" [routerLink]="['/Shoplist']">
+        <ion-icon slot="start" name="cart"></ion-icon>
+        Back to Shoping
+      </ion-button>
+    </ion-col>
+    <ion-col class="ion-text-right" size="6">
+      <ion-item lines="none">
+        <ion-checkbox justify="end" labelPlacement="end" [checked]="isFinalize" #isFinalize>
+          Finalize my order
+        </ion-checkbox>
+      </ion-item>
+      <ion-button size="medium" strong="true" (click)="orderConfirm()" fill="solid" color="primary" [disabled]="!isFinalize.checked">
+        <ion-icon slot="end" name="card-outline" size="small"></ion-icon>
+        Proceed to Checkout
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-footer>
 <!-- <table>
   <tbody>

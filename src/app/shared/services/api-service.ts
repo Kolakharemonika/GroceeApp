@@ -67,15 +67,6 @@ export class ApiService {
   }
   getApi(url:any, params:any) {
 
-    // if (!headers || !headers.get('Content-Type')) {
- let     headers = new HttpHeaders();
-      headers.set('Content-Type', 'application/json; charset=utf-8');
-      headers.set('Access-Control-Allow-Origin', '*');
-      headers.set('Access-Control-Allow-Credentials', 'true');
-      headers.set('Access-Control-Allow-Methods', 'PUT, GET, HEAD, POST, DELETE, OPTIONS');
-      headers.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-xsrf-token');
-
-    // }
 
     params = this.appendCommonParameters(params);
 
@@ -100,13 +91,6 @@ export class ApiService {
   postApi(url: any, data: any, headers: any) {
     if (!headers || !headers.get('Content-Type')) {
       headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-      //  headers = new HttpHeaders();
-      // headers.set('Content-Type', 'application/json; charset=utf-8') ;
-      // headers.set('Access-Control-Allow-Origin', '*');
-      // headers.set('Access-Control-Allow-Credentials', 'true');
-      // headers.set('Access-Control-Allow-Methods', 'PUT, GET, HEAD, POST, DELETE, OPTIONS');
-      // headers.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-xsrf-token');
-
     }
 
     data = this.appendCommonParameters(data);
@@ -129,6 +113,7 @@ export class ApiService {
         );
     });
   }
+
   apiCancellable(url: any, params: any) {
     params = this.appendCommonParameters(params);
 
@@ -148,38 +133,13 @@ export class ApiService {
       } else if ( typeof error === 'string' ) {
         errorMessage = error;
       }
-      return throwError(errorMessage);
+      return throwError(() => error);
     };
   }
 
   sanitizeBase64(base64: any) {
     return this.sanitizer.bypassSecurityTrustUrl(base64);
   }
-  // explodeQueryString(paramString: any){
-  //   const data = new URLSearchParams( paramString );
-  //   let params = {};
-  //   for(var [key, value] of data.entries()) {
-  //      console.log(key+ ' => '+ value);
-  //      params[key] = value;
-  //   }
-  //   return params;
-  // }
-  // decodeBase64Code(code) {
-  //   let paramString = atob(code);
-  //   return this.explodeQueryString(paramString);
-  // }
-
-  // sanitizeQueryParameters(params){
-
-  //     let data = {};
-
-  //     data['tableId'] = +params['tableId']||0;
-  //     data['deviceId'] = +params['deviceId']||0;
-  //     data['restaurantId'] = +params['restaurantId']||0;
-  //     data['code'] = params['code']||'';
-
-  //     return data;
-  // };
 
   unSubscribe(subs: any) {
     if (

@@ -24,6 +24,7 @@ import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 import { WishListComponent } from './wish-list/wishlist.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginDetailsComponent } from './Login/login.component';
+import { AddCategoryComponent } from './categories/add-category.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,6 +63,8 @@ const routes: Routes = [
   { path: 'Error', component: ErrorComponent },
 
   { path: 'DeliveryAddress', component: DeliveryAddressComponent },
+  // admin
+  { path: 'Add-Category', component: AddCategoryComponent },
 ];
 
 @NgModule({

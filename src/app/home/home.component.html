@@ -26,31 +26,17 @@
   </swiper-container>
 
   <ion-row class="home-offers">
-    <ion-col>
-      <ion-card color="danger">
+    <ion-col *ngFor="let offer of offersList; let i = index;">
+      <ion-card [color]="i ? 'darkblue' : 'danger'">
         <ion-card-header>
-          <ion-card-title>40&#37; OFF</ion-card-title>
-          <ion-card-title>UP TO &#8377;800</ion-card-title>
+          <ion-card-title>{{offer.discount}}&#37; OFF</ion-card-title>
+          <ion-card-title>UP TO &#8377;{{offer.discountPrice}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-text color="medium">
-            <p>Minimum order &#8377;5000</p>
+          <ion-text color="light">
+            <p>Minimum order &#8377;{{offer.minPrice}}</p>
           </ion-text>
-          <ion-button shape="round" size="small" color="light">GET OFFER</ion-button>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card color="darkblue">
-        <ion-card-header>
-          <ion-card-title>10&#37; OFF</ion-card-title>
-          <ion-card-title>UP TO &#8377;500</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-text color="medium">
-            <p>Minimum order &#8377;5000</p>
-          </ion-text>
-          <ion-button shape="round" size="small" color="light">GET OFFER</ion-button>
+          <ion-button shape="round" size="small" color="light" (click)="showOffers(offer.code)">GET OFFER</ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>

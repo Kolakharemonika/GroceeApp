@@ -105,18 +105,28 @@ export class CustomerService {
       );
     });
   }
-
+  getNow(url: any, data: any) {
+    return new Promise((resolve, reject) => {
+      this.apiService.getApi(url, data).then(
+        (resp: any) => {
+          resolve(resp);
+        },
+        (error) => {
+          console.log(error);
+          reject(error);
+        }
+      );
+    });
+  }
   save(url:any, data:any) {
     return new Promise((resolve, reject) => {
       this.apiService.postApi(url, data, null).then(
         (resp: any) => {
-          if (resp.success) {
-
-            // this._saveOrderIfReceived(resp?.order);
+          // if (resp.success) {
             resolve(resp);
-          } else {
-            reject(resp.message);
-          }
+          // } else {
+          //   reject(resp.message);
+          // }
         },
         (error) => {
           console.log(error);
@@ -161,23 +171,10 @@ export class CustomerService {
   //   });
   // }
 
-  getDeviceStatus() {
+  getAddress() {
 
     return new Promise((resolve, reject) => {
-      this.get(CONFIG.endpoints.getDeviceStatus, null).then((resp: any) => {
-
-        // if (resp.table?.id == this.cache.user.table?.id && resp.table.status == 30) {//merged table
-        //   this.deviceMessage = resp.table.message;
-        // }else {
-        //   this.deviceMessage = '';
-        // }
-
-        this.apiService.sendAction({action: 'mercure_url_changed', topicUrl: resp.topicUrl});
-
-        if(!resp.order){
-          // this.cache.clearSession('order');
-        }
-
+      this.getNow(CONFIG.endpoints.getAddress, null).then((resp: any) => {
         resolve(resp);
       }, (error) => {
         reject(error);
@@ -185,7 +182,41 @@ export class CustomerService {
     });
   }
 
-  getMenuTree(data = null) {
+  addToCategory(data:any) {
+    return new Promise((resolve, reject) => {
+      this.save(CONFIG.endpoints.addToCategory, data).then((resp) => {
+        console.log(resp);
+
+        resolve(resp);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+  addToItemsList(data: any) {
+    return new Promise((resolve, reject) => {
+      this.save(CONFIG.endpoints.addToItemsList, data).then((resp) => {
+        console.log(resp);
+
+        resolve(resp);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+  deleteAddress(addressId:number){
+let data ={
+  addressId: addressId
+}
+    return new Promise((resolve, reject) => {
+      this.apiService.postApi(CONFIG.endpoints.getAddress, data, null).then((resp: any) => {
+        resolve(resp);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+  getMenuTree(data=null) {
     return new Promise((resolve, reject) => {
 
       if (this.menuTree && this.menuTree.length) {
@@ -201,15 +232,18 @@ export class CustomerService {
       });
     });
   }
-  validateOrderJoinOTP(data:any) {
+  saveAddress(data:any) {
     return new Promise((resolve, reject) => {
-      this.save(CONFIG.endpoints.validateOrderJoinOTP, data).then((resp) => {
+      this.save(CONFIG.endpoints.saveAddress, data).then((resp) => {
+        console.log(resp);
+
         resolve(resp);
       }, (error) => {
         reject(error);
       });
     });
   }
+
   startJourney(data: any) {
     return new Promise((resolve, reject) => {
       this.save(CONFIG.endpoints.startJourney, data).then((resp: any) => {
@@ -273,6 +307,16 @@ export class CustomerService {
       });
     });
   }
+
+  SaveSignIn(data:any) {
+    return new Promise((resolve, reject) => {
+      this.save(CONFIG.endpoints.saveReview, data).then((resp) => {
+        resolve(resp);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
   applyCoupon(code:any) {
     return new Promise((resolve, reject) => {
       this.save(CONFIG.endpoints.applyCoupon, { 'code': code }).then((resp) => {
@@ -309,20 +353,21 @@ export class CustomerService {
       });
     });
   }
-  addToOrder() {
 
-    let postData = Object.values(this.cartService.cartMenuItems).map(item => {
+  addToOrder() {
+    let postData:any = {};
+     postData.menuItems = Object.values(this.cartService.cartMenuItems).map(item => {
       return {
         id: item.id,
         quantity: item.quantity,
-        // instructionNote: item.instructionNote ? item.instructionNote : '',
-        orderItemId: item.orderItemId?item.orderItemId:'',
-        // menuItemAttributeId: item.selectedMenuItemAttributes? item.selectedMenuItemAttributes.id: null
+        orderItemId: item.orderItemId ? item.orderItemId: '',
+        // otherDetails : this.cartService.cart
       }
     });
-
+    postData.otherDetails = this.cartService.cart;
+    console.log(postData, 'postData');
     return new Promise((resolve, reject) => {
-      this.save(CONFIG.endpoints.addToOrder, {'menuItems': postData}).then((resp: any) => {
+      this.save(CONFIG.endpoints.addToOrder, {postData}).then((resp: any) => {
         resolve(resp);
       }, (error) => {
         reject(error);

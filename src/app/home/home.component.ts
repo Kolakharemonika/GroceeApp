@@ -13,6 +13,7 @@ import { Cache } from '../shared/services/cache';
 
 export class HomeComponent {
   itemsList: any = [];
+  offersList: any = [];
 
   constructor(private itemsService: ItemsService,
               public cartService: CartService,
@@ -21,6 +22,7 @@ export class HomeComponent {
               private router: Router ) {
     this.getCartItemData();
     !this.cache.isLoggedIn && this.showModel();
+    this.getOffers();
   }
 
   getCartItemData() {
@@ -29,6 +31,20 @@ export class HomeComponent {
         this.itemsList = this.itemsService.itemsList.slice(0, 4); //only 4 items needed
       }
     });
+  }
+
+  showOffers(code: string) {
+
+  }
+  getOffers() {
+    // this.itemsService.offers().then((resp: any) => {
+      let resp = true;
+      if (resp) {
+        // this.offersList = resp; //only 4 items needed
+        this.offersList = [{ discount: '40', discountPrice: '800', minPrice: '5000', code:'NEW40' },
+          { discount: '10', discountPrice: '500', minPrice: '5000', code: 'NEW10' }];
+      }
+    // });
   }
 
   async showModel() {
@@ -44,20 +60,25 @@ export class HomeComponent {
           htmlAttributes: {
             'aria-label': 'close',
           }
-        },
-        {
-          text: 'Sign-In',
-          handler: () => {
-            console.log('Sign-In');
-            this.router.navigate(['/Create-user'], { queryParams: { type: 'exiting-user' } });
-          },
-          icon: 'lock-closed-outline',
         }, {
-          text: 'Create new Account',
-          icon: 'person-add-outline',
-          handler: () => {
-            this.router.navigate(['/log-details']);
-          }
+            text: 'Sign-In',
+            handler: () => {
+              console.log('Sign-In');
+              this.router.navigate(['/Create-user'], { queryParams: { type: 'exiting-user' } });
+            },
+            icon: 'lock-closed-outline',
+        }, {
+            text: 'Create new Account',
+            icon: 'person-add-outline',
+            handler: () => {
+              this.router.navigate(['/log-details']);
+            }
+        }, {
+            text: 'Admin',
+            icon: 'person-outline',
+            handler: () => {
+              this.router.navigate(['/log-details']);
+            }
         }
       ]
     });

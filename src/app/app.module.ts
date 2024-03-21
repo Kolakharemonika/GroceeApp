@@ -37,6 +37,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { CameraService } from './shared/services/camera-service';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginDetailsComponent } from './Login/login.component';
+import { AddCategoryComponent } from './categories/add-category.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,
@@ -44,7 +45,7 @@ import { LoginDetailsComponent } from './Login/login.component';
                  CheckoutComponent, AboutUsComponent, FaqComponent, ErrorComponent,
                  ShopListComponent, ProductInfoComponent, CartComponent, DeliveryAddressComponent,
                  AboutUsTabComponent, PrivacyComponent, TermsConditionComponent, SingleCardComponent,
-                 WishListComponent, LoginDetailsComponent, CreateUserComponent],
+                 WishListComponent, LoginDetailsComponent, CreateUserComponent, AddCategoryComponent],
   imports: [BrowserModule, CheckoutModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
             NgxWebstorageModule.forRoot(),],
   providers: [{

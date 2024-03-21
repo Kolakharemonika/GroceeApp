@@ -32,10 +32,10 @@ export class MenuTreeDetails {
 
 export class Category {
     id: any;
-    name: string;
+    catTitle: string;
+    catDescription: string;
+    catDiscount: Number;
     avatar: string;
-    note: string;
-    description: string;
 
     // childrens: any[];
     menuItems: MenuItem[];
@@ -46,10 +46,10 @@ export class Category {
     constructor(jsonObj:any){
         if(jsonObj){
             this.id = jsonObj.id ? jsonObj.id : null;
-            this.name = jsonObj.name ? jsonObj.name : '';
-            this.note = jsonObj.note ? jsonObj.note : '';
+            this.catTitle = jsonObj.catTitle ? jsonObj.catTitle : '';
+            this.catDescription = jsonObj.catDescription ? jsonObj.catDescription : '';
             this.avatar = jsonObj.avatar ? jsonObj.avatar : '';
-            this.description = jsonObj.description ? jsonObj.description : '';
+            this.catDiscount = jsonObj.catDiscount ? jsonObj.catDiscount : 0;
             // this.beverage = jsonObj.beverage ? jsonObj.beverage : 0;
 
             // this.childrens = new Array();
@@ -65,10 +65,10 @@ export class Category {
             }
         } else {
             this.id = null;
-            this.name = '';
-            this.note = '';
+            this.catTitle = '';
+            this.catDescription = '';
             this.avatar = '';
-            this.description = '';
+            this.catDiscount = 0;
             // this.beverage = 0;
 
             // this.childrens = new Array();
@@ -85,14 +85,15 @@ export class MenuItem {
     totalCost: number;
     discountedPrice: number;
     discountPercentage: string;
-    discount:string;
+    discount: string;
+    category: any;
 
     serveQuantity: number;
     unit: number;
 
     quantity: number;
     measures: string;
-    isWishlist:boolean;
+    isWishlist: boolean;
 
     rating: number;
 
@@ -110,6 +111,7 @@ export class MenuItem {
             this.discountedPrice = jsonObj.discountedPrice ? +jsonObj.discountedPrice : 0;
             this.discountPercentage = jsonObj.discountPercentage ? jsonObj.discountPercentage : '';
 
+          this.category = jsonObj.category ? jsonObj.category : null;
             this.measures = jsonObj.measures ? jsonObj.measures : '';
             this.serveQuantity = jsonObj.serveQuantity ? jsonObj.serveQuantity : 0;
             this.unit = jsonObj.unit ? jsonObj.unit : 0;
@@ -118,10 +120,11 @@ export class MenuItem {
             this.status = jsonObj.status ? jsonObj.status : null;
 
             this.quantity = 0;
-           this.isWishlist = jsonObj.isWishlist ? jsonObj.isWishlist : false;
+            this.isWishlist = jsonObj.isWishlist ? jsonObj.isWishlist : false;
 
         } else {
             this.id = null;
+            this.category = null;
             this.title = '';
             this.avatar = '';
             this.price = 0;

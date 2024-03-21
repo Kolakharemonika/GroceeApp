@@ -35,7 +35,7 @@ export class ShopListComponent implements OnInit{
     this.itemsService.getItems().then((resp: any) => {
       if (resp) {
         if (this.selectedType) {
-          this.itemsList = this.itemsService.itemsList.filter((item: any) => this.selectedType == item.categories.id)
+          this.itemsList = this.itemsService.itemsList.filter((item: any) => this.selectedType == item.category)
         }else {
           this.itemsList = this.itemsService.itemsList;
         }

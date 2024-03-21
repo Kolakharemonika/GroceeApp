@@ -23,12 +23,11 @@ export class CartService {
                 });
                 console.log(this.cartMenuItems,'cartMenuItems');
 
-    // this.cache.getSession('order').then((order: any) => {
-    //   this.order = order ? order : {};
-    //   this.cache.orderId = this.order.id;
-    // }, (error:any) => {
-    // });
-
+              this.cache.getSession('order').then((order: any) => {
+                this.order = order ? order : {};
+                this.cache.orderId = this.order.id;
+              }, (error:any) => {
+              });
   }
 
   updateCartMenuItemsQty(menu: any, action: string) {
@@ -65,15 +64,15 @@ export class CartService {
 
   updateWishlistItems(product: any) {
 
-    let filteredProduct = this.itemService?.itemsList.length>  0 && this.itemService?.itemsList.filter((item:any)=> item.id === product.id)[0]
+    let filteredProduct = this.itemService?.itemsList.length > 0 && this.itemService?.itemsList.filter((item:any)=> item.id === product.id)[0];
 
     if (!this.wishListItems[product.id]) {
-        filteredProduct.isWishlist = true;
+        filteredProduct && (filteredProduct.isWishlist = true);
         this.cartMenuItems[product.id] && (this.cartMenuItems[product.id].isWishlist = true);
         this.wishListItems[product.id] = Object.assign({}, product);
 
       } else {
-        filteredProduct.isWishlist = false;
+        filteredProduct && (filteredProduct.isWishlist = false);
         this.cartMenuItems[product.id] && (this.cartMenuItems[product.id].isWishlist = false);
         delete this.wishListItems[product.id];
      }
@@ -123,13 +122,13 @@ export class CartService {
   emptyCart() {
     this.cartMenuItems = {};
     this.cache.clearSession('cart');
-    this.apiService.sendAction({ action: 'cart_updated' })
+    this.apiService.sendAction({ action: 'cart_updated' });
   }
   saveCart() {
     this.cache.setSession('cart', this.cartMenuItems);
     this.apiService.sendAction({ action: 'cartlist_updated' });
   }
   saveOrder() {
-    // this.cache.setSession('order', this.order);
+    this.cache.setSession('order', this.order);
   }
 }

@@ -15,11 +15,10 @@ export class CategoryComponent {
 
   constructor( public router: Router,
                private itemsService: ItemsService) {
-    this.itemsService.getCategories().then(data => {
+    this.itemsService.getCategory().then((data:any) => {
       this.categories = data;
     });
    }
-
 
   StartWithCat(category: string) {
     this.router.navigate(['/Shoplist'], { queryParams: { category } });

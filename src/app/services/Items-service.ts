@@ -15,7 +15,7 @@ export class ItemsService {
         resolve(true);
         return;
       }
-      this.get("/ItemList", null).then((resp: any) => {
+      this.get(CONFIG.endpoints.getItemsList, null).then((resp: any) => {
         // this.cache.orderId = '';
         // console.log(resp, 'respppppp final');
         this.itemsList = resp ;
@@ -36,10 +36,9 @@ export class ItemsService {
       });
     });
   }
-  getCategories() {
-    // return this.categoriesList.slice();
+  getCategory() {
     return new Promise((resolve, reject) => {
-      this.get("/Categories", null).then((resp: any) => {
+      this.get(CONFIG.endpoints.getCategory, null).then((resp: any) => {
         // this.cache.orderId = '';
         // console.log(resp,'respppppp final');
 
@@ -50,11 +49,11 @@ export class ItemsService {
       });
     });
   }
+
   get(url:any, data:any) {
     return new Promise((resolve, reject) => {
       this.apiService.getApi(url, data).then(
         (resp: any) => {
-          // this._saveOrderIfReceived(resp?.order);
           resolve(resp);
         },
         (error) => {
