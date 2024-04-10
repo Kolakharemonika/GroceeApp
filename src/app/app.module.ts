@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from './shared/services/token-interceptor';
+import { TokenInterceptor } from '../shared/services/token-interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CheckoutModule } from './checkout/checkout.module';
@@ -30,14 +30,14 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 import { PrivacyComponent } from './about-us/privacy.component';
 import { TermsConditionComponent } from './about-us/terms.component';
-import { SingleCardComponent } from './shared/components/single-card/single-card.component';
+import { SingleCardComponent } from '../shared/components/single-card/single-card.component';
 import { WishListComponent } from './wish-list/wishlist.component';
 import { CustomerService } from './services/customer-service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-import { CameraService } from './shared/services/camera-service';
+import { CameraService } from '../shared/services/camera-service';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginDetailsComponent } from './Login/login.component';
-import { AddCategoryComponent } from './categories/add-category.component';
+import { AddCategoryComponent } from '../admin-app/add-category.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, HeaderComponent, CategoryComponent,

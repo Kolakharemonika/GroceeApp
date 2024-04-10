@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Cache } from '../shared/services/cache';
+import { Cache } from '../../shared/services/cache';
 import { CustomerService } from '../services/customer-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';

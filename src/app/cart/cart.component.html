@@ -76,7 +76,7 @@
           Finalize my order
         </ion-checkbox>
       </ion-item>
-      <ion-button size="medium" strong="true" (click)="orderConfirm()" fill="solid" color="primary" [disabled]="!isFinalize.checked">
+      <ion-button size="medium" strong="true" (click)="orderConfirm()" fill="solid" color="primary" [disabled]="!isFinalize.checked || itemsList.length ===0">
         <ion-icon slot="end" name="card-outline" size="small"></ion-icon>
         Proceed to Checkout
       </ion-button>

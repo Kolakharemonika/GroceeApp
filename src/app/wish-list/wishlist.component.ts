@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart-service';
-import { ApiService } from '../shared/services/api-service';
+import { ApiService } from '../../shared/services/api-service';
 
 
 @Component({

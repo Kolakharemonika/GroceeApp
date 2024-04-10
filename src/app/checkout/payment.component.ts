@@ -14,7 +14,21 @@ import { Component } from '@angular/core';
     </ion-buttons>
     <ion-title> Payment </ion-title>
   </ion-toolbar>
-</ion-header>`
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-list-header>select payment method</ion-list-header>
+    <ion-list>
+      <ion-radio-group >
+        <ion-item><ion-radio value="phonepay"> Phonepay  </ion-radio></ion-item>
+         <ion-item><ion-radio value="phonepay"> Phonepay  </ion-radio></ion-item>
+         <ion-item><ion-radio value="phonepay"> Phonepay  </ion-radio></ion-item>
+      </ion-radio-group>
+    </ion-list>
+</ion-card>
+
+</ion-content>
+`
 })
 
 export class PaymentComponent {

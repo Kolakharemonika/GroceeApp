@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart-service';
-import { ApiService } from '../shared/services/api-service';
-import { Cache } from '../shared/services/cache';
+import { ApiService } from '../../shared/services/api-service';
+import { Cache } from '../../shared/services/cache';
 import { Router } from '@angular/router';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 

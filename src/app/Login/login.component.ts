@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CameraService } from '../shared/services/camera-service';
-import { Cache } from '../shared/services/cache';
+import { CameraService } from '../../shared/services/camera-service';
+import { Cache } from '../../shared/services/cache';
 import { CustomerService } from '../services/customer-service';
 import { NavigationEnd, Router } from '@angular/router';
+import { CartService } from '../services/cart-service';
 
 @Component({
   selector: 'app-login-details',
@@ -14,11 +15,13 @@ export class LoginDetailsComponent {
   profileFormGroup!: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private cameraService: CameraService,
-    private cache: Cache,
-    private customerService: CustomerService,
-    private router: Router) {
-    console.log('payment');
+              private cameraService: CameraService,
+              private cache: Cache,
+              private cartService: CartService,
+              private customerService: CustomerService,
+              private router: Router) {
+
+    // console.log('payment');
     this.createSignupForm();
 
     this.router.events.subscribe((event) => {
@@ -82,7 +85,7 @@ export class LoginDetailsComponent {
       // this.cache.isLoggedIn = true;
       // this.cache.setSession('isLoggedIn', true);
       if (this.cache.isLoggedIn) {
-
+        this.cartService.saveOrder()
       } else {
         this.router.navigate(['/Create-user'], { queryParams: { type : 'new-user' } });
         // this.router.navigate(['/Shoplist'], { queryParams: { category } });

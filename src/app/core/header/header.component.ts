@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Cache } from 'src/app/shared/services/cache';
+import { Cache } from 'src/shared/services/cache';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,7 @@ import { Cache } from 'src/app/shared/services/cache';
 
 export class HeaderComponent {
   public appPages = [
-    { title: 'Homepage', url: '/Home', icon: 'home', isShow: true },
+    { title: 'Home', url: '/Home', icon: 'home', isShow: true },
     { title: 'Categories', url: '/Category', icon: 'list', isShow: true },
     { title: 'Shop List', url: '/Shoplist', icon: 'grid', isShow: true },
     // { title: 'Product Info', url: '/Product', icon: 'pricetag' },

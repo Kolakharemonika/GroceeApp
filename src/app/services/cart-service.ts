@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from 'src/app/shared/models/application';
+import { MenuItem } from 'src/shared/models/application';
 import { ItemsService } from './Items-service';
-import { ApiService } from '../shared/services/api-service';
-import { Cache } from '../shared/services/cache';
+import { ApiService } from '../../shared/services/api-service';
+import { Cache } from '../../shared/services/cache';
 
 @Injectable()
 export class CartService {

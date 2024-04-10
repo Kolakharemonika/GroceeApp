@@ -9,7 +9,7 @@
       <span class="discount-price"> &#8377;{{item.discountedPrice}} </span> <span class="product-price"> &#8377;{{item.price}} </span>
     </ng-container>
     <ion-badge color="success" slot="end" *ngIf="item.discount"> {{item.discount}}&#37; OFF </ion-badge>
-    <ion-label> {{item.title}} </ion-label>
+    <ion-label class="product-title"> {{item.title}} </ion-label>
   </ion-card-content>
   <ion-card-content class="space-between">
       <ion-note> {{item.measures}} </ion-note>
@@ -21,7 +21,7 @@
   </ion-card-content>
 </ion-card-header>
 </ion-item>
-<ion-card class="ion-no-margin" *ngIf="isVertical">
+<ion-card class="ion-no-margin" *ngIf="isVertical" >
   <ion-item lines="none">
     <ion-icon class="badge-top-left" slot="start" (click)="addToWishlist()" [name]="item.isWishlist ? 'heart-sharp' : 'heart-outline' "></ion-icon>
     <ion-badge class="badge-top" color="primary" slot="end" *ngIf="item.discount"> {{item.discount}}&#37; OFF </ion-badge>
@@ -29,7 +29,7 @@
   </ion-item>
 
   <ion-card-content>
-    <ion-card-subtitle> {{item.title}} </ion-card-subtitle>
+    <ion-card-subtitle class="product-title"> {{item.title}} </ion-card-subtitle>
     <ion-label class="discount-price">&#8377;{{item.discountedPrice}}
       <span class="product-price">&#8377;{{item.price}}</span></ion-label>
   </ion-card-content>

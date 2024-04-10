@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { CONFIG } from '../shared/services/config';
+import { CONFIG } from '../../shared/services/config';
 // import { Cache } from '../../shared/services/cache';
 // import { ApiService } from '../../shared/services/api-service';
 // import { UserService } from '../../shared/services/user-service';
 import { CartService } from './cart-service';
-import { ApiService } from '../shared/services/api-service';
+import { ApiService } from '../../shared/services/api-service';
 
 // import { User, Restaurant, Device, Table } from '../../shared/models/user';
 // import { MenuTreeDetails } from '../../shared/models/application';

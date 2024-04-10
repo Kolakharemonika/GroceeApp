@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomerService } from '../services/customer-service';
+import { CustomerService } from '../app/services/customer-service';
 import { CameraService } from '../shared/services/camera-service';
 import { ToastService } from '../shared/services/toast-service';
-import { ItemsService } from '../services/Items-service';
+import { ItemsService } from '../app/services/Items-service';
 
 register();
 

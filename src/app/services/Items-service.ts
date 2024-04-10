@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../shared/services/api-service';
-import { CONFIG } from '../shared/services/config';
+import { ApiService } from '../../shared/services/api-service';
+import { CONFIG } from '../../shared/services/config';
 
 @Injectable()
 export class ItemsService {

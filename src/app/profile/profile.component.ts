@@ -2,8 +2,8 @@
 import { Camera, CameraDirection, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Cache } from '../shared/services/cache';
-import { CameraService } from '../shared/services/camera-service';
+import { Cache } from '../../shared/services/cache';
+import { CameraService } from '../../shared/services/camera-service';
 
 @Component({
   selector: 'app-profile',

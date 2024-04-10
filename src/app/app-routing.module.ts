@@ -24,7 +24,7 @@ import { AboutUsTabComponent } from './about-us/about-us-tab.component';
 import { WishListComponent } from './wish-list/wishlist.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginDetailsComponent } from './Login/login.component';
-import { AddCategoryComponent } from './categories/add-category.component';
+import { AddCategoryComponent } from '../admin-app/add-category.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

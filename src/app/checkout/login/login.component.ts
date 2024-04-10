@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer-service';
-import { Cache } from './../../shared/services/cache';
+import { Cache } from '../../../shared/services/cache';
 import { AlertController } from '@ionic/angular';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { CartService } from '../../../services/cart-service';
+import { CartService } from '../../../app/services/cart-service';
 import { Router } from '@angular/router';
 import { MenuItem } from '../../models/application';
 import { ApiService } from '../../services/api-service';

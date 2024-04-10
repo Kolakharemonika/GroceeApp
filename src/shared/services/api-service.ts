@@ -65,9 +65,8 @@ export class ApiService {
 
     return data;
   }
+
   getApi(url:any, params:any) {
-
-
     params = this.appendCommonParameters(params);
 
     return new Promise((resolve, reject) => {

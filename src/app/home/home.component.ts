@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ItemsService } from '../services/Items-service';
 import { CartService } from '../services/cart-service';
-import { ApiService } from '../shared/services/api-service';
+import { ApiService } from '../../shared/services/api-service';
 import { ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { Cache } from '../shared/services/cache';
+import { Cache } from '../../shared/services/cache';
 
 @Component({
   selector: 'app-home',
@@ -77,7 +77,7 @@ export class HomeComponent {
             text: 'Admin',
             icon: 'person-outline',
             handler: () => {
-              this.router.navigate(['/log-details']);
+              this.router.navigate(['/Create-user'], { queryParams: { type: 'exiting-user' } });
             }
         }
       ]
